@@ -28,7 +28,7 @@ namespace VillageGreenConsoleApp
         {
             string result = "";
 
-            if (Regex.IsMatch(eMail, "^([a-zA-Z0-9]{1,}[._-]{0,1}[a-zA-Z0-9]{1,})+@([a-zA-Z0-9]{1,}[._-]{0,1}[a-zA-Z0-9]{1,})+.[a-zA-Z0-9]{2,}$"))
+            if (Regex.IsMatch(eMail, @"^([a-zA-Z0-9]{1,}[._-]{0,1}[a-zA-Z0-9]{1,})+\@([a-zA-Z0-9]{1,}[._-]{0,1}[a-zA-Z0-9]{1,})+\.[a-zA-Z0-9]{2,}$"))
             {
                 result = "";
             }
@@ -36,17 +36,25 @@ namespace VillageGreenConsoleApp
             {
                 result = "L'adresse doit comporter au moins deux caractères devant @";
             }
-            else if (Regex.IsMatch(eMail, "^([a-zA-Z0-9]{1,}[._-]{0,1}[a-zA-Z0-9]{1,})+@[a-zA-Z0-9]{1}.[a-zA-Z0-9]{2,}$"))
+            else if (Regex.IsMatch(eMail, @"^([a-zA-Z0-9]{1,}[._-]{0,1}[a-zA-Z0-9]{1,})+\@[a-zA-Z0-9]{1}\.[a-zA-Z0-9]{2,}$"))
             {
-                result = "L'adresse doit comporter au moins deux caractères après @ ";
+                result = "L'adresse doit comporter au moins deux caractères après @";
             }
-            else if (Regex.IsMatch(eMail, "^[a-zA-Z0-9]{1}@[a-zA-Z0-9]{1}.[a-zA-Z0-9]{2,}$"))
+            else if (Regex.IsMatch(eMail, @"^[a-zA-Z0-9]{1}\@[a-zA-Z0-9]{1}\.[a-zA-Z0-9]{2,}$"))
             {
-                result = "L'adresse doit comporter au moins deux caractères devant et après @ ";
+                result = "L'adresse doit comporter au moins deux caractères devant et après @";
             }
-            else if (Regex.IsMatch(eMail, "^([a-zA-Z0-9]{1,}[._-]{0,1}[a-zA-Z0-9]{1,})+@([a-zA-Z0-9]{1,}[._-]{0,1}[a-zA-Z0-9]{1,})+.[a-zA-Z0-9]{1}$"))
+            else if (Regex.IsMatch(eMail, @"^([a-zA-Z0-9]{1,}[._-]{0,1}[a-zA-Z0-9]{1,})+\@([a-zA-Z0-9]{1,}[._-]{0,1}[a-zA-Z0-9]{1,})+\.[a-zA-Z0-9]{1}$"))
             {
                 result = "L'adresse doit comporter après le point au moins deux caractères";
+            }
+            else if (Regex.IsMatch(eMail, @"^([a-zA-Z0-9]{1,}[._-]{0,1}[a-zA-Z0-9]{1,})+([a-zA-Z0-9]{1,}[._-]{0,1}[a-zA-Z0-9]{1,})+\.[a-zA-Z0-9]{2,}$"))
+            {
+                result = "L'adresse doit comporter un @";
+            }
+            else if (Regex.IsMatch(eMail, @"^([a-zA-Z0-9]{1,}[._-]{0,1}[a-zA-Z0-9]{1,})+\@([a-zA-Z0-9]{1,}[_-]{0,1}[a-zA-Z0-9]{1,})+[a-zA-Z0-9]{2,}$"))
+            {
+                result = "L'adresse doit contenir un \".\" après @ ";
             }
             else
             {
