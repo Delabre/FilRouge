@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace VillageGreenConsoleApp
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.WriteLine("Entrez votre adresse email");
             string adresseEmail = Console.ReadLine();
@@ -24,7 +24,7 @@ namespace VillageGreenConsoleApp
         /// </summary>
         /// <param name="eMail"></param>
         /// <returns></returns>
-        static string CheckMail(string eMail)
+        public static string CheckMail(string eMail)
         {
             string result = "";
 

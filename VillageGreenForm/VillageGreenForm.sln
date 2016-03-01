@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VillageGreenConsoleApp", "VillageGreenConsoleApp\VillageGreenConsoleApp.csproj", "{A56FD09E-1A0B-4C33-A75A-1FE392BD6F5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{4B6CE001-7AEC-46B9-AD0B-A93A92379CE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A56FD09E-1A0B-4C33-A75A-1FE392BD6F5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A56FD09E-1A0B-4C33-A75A-1FE392BD6F5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A56FD09E-1A0B-4C33-A75A-1FE392BD6F5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B6CE001-7AEC-46B9-AD0B-A93A92379CE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B6CE001-7AEC-46B9-AD0B-A93A92379CE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B6CE001-7AEC-46B9-AD0B-A93A92379CE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B6CE001-7AEC-46B9-AD0B-A93A92379CE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
