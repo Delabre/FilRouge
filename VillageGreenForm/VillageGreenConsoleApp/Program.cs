@@ -22,6 +22,7 @@ namespace VillageGreenConsoleApp
 /// Methode pour valider une adresse email
 /// </summary>
 /// <param name="eMail"></param>
+/// <value>Correspond à la variable contenant l'adresse à vérifier</value>
 /// <returns></returns>
         static string CheckMail(string eMail)
         {
