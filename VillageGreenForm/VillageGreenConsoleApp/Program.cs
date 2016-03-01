@@ -18,12 +18,12 @@ namespace VillageGreenConsoleApp
         }
 
 
-/// <summary>
-/// Methode pour valider une adresse email
-/// </summary>
-/// <param name="eMail"></param>
-/// <value>Correspond à la variable contenant l'adresse à vérifier</value>
-/// <returns></returns>
+        /// <summary>
+        ///Methode pour valider une adresse email.La fonction renvoie une chaîne de caractère vide si l’adresse est correcte, 
+        ///ou contenant l’erreur détectée si l’adresse n’est pas cohérente.
+        /// </summary>
+        /// <param name="eMail"></param>
+        /// <returns></returns>
         static string CheckMail(string eMail)
         {
             string result = "";
@@ -43,6 +43,10 @@ namespace VillageGreenConsoleApp
             else if (Regex.IsMatch(eMail, "^[a-zA-Z0-9]{1}@[a-zA-Z0-9]{1}.[a-zA-Z0-9]{2,}$"))
             {
                 result = "L'adresse doit comporter au moins deux caractères devant et après @ ";
+            }
+            else if (Regex.IsMatch(eMail, "^([a-zA-Z0-9]{1,}[._-]{0,1}[a-zA-Z0-9]{1,})+@([a-zA-Z0-9]{1,}[._-]{0,1}[a-zA-Z0-9]{1,})+.[a-zA-Z0-9]{1}$"))
+            {
+                result = "L'adresse doit comporter après le point au moins deux caractères";
             }
             else
             {
