@@ -29,9 +29,30 @@ namespace VgChiffreAffaire
             comboBoxFourniseur.SelectedIndex = -1;
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void buttonRechercher_Click(object sender, EventArgs e)
         {
+            if (comboBoxFourniseur.SelectedIndex != -1)
+            {
+                RechercheDAO search = new RechercheDAO();
 
+                dataGridView1.DataSource = search.CA((int)comboBoxFourniseur.SelectedValue);
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            else
+            {
+                MessageBox.Show("Veuillez selectionner un fournisseur","Erreur Recherche", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            comboBoxFourniseur.SelectedIndex = -1;
+        }
+
+        private void buttonVider_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = null;
         }
     }
 }

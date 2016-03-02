@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UMLUseCaseDiagram2">
+  <useCaseModelRootMoniker Id="53dd9b04-25a7-493b-a656-62ec5b4973aa" />
+  <nestedChildShapes>
+    <actorShape Id="2fa96f3c-b34d-45c0-9dd2-0b71c5e8ccb0" absoluteBounds="1.875, 2, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="9ae325d7-698a-49ee-adec-7b528d71bc53" LastKnownName="Client" />
+      <relativeChildShapes />
+    </actorShape>
+    <actorShape Id="ff41d7ac-1832-4a39-870b-1ecfde50aa94" absoluteBounds="1.875, 2.875, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="8c1860ed-0864-46f6-a4f1-f8288f18b0ec" LastKnownName="Commercial" />
+      <relativeChildShapes />
+    </actorShape>
+    <actorShape Id="adef4922-5ac4-4134-bc82-ca58d7e47e3e" absoluteBounds="1.875, 5.5, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="8e85dde5-7e82-45d3-83d5-3fd0d19f2e3b" LastKnownName="Patron" />
+      <relativeChildShapes />
+    </actorShape>
+    <actorShape Id="43c90d24-fbad-4a28-8155-091714e2e0e1" absoluteBounds="1.875, 3.75, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="1c20abec-ee0d-4486-8081-892168436cde" LastKnownName="Comptable" />
+      <relativeChildShapes />
+    </actorShape>
+    <actorShape Id="25ffda88-76d1-439c-b1c7-37ac6148422d" absoluteBounds="1.875, 4.625, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="b07f4a20-fa65-423d-a08e-17b9a7d66479" LastKnownName="Service de gestion" />
+      <relativeChildShapes />
+    </actorShape>
+  </nestedChildShapes>
+</useCaseDiagram>

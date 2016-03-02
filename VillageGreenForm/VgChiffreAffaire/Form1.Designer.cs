@@ -35,7 +35,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button7 = new System.Windows.Forms.Button();
+            this.buttonRechercher = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -47,6 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxFourniseur = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buttonVider = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -116,15 +117,15 @@
             this.pictureBox1.TabIndex = 28;
             this.pictureBox1.TabStop = false;
             // 
-            // button7
+            // buttonRechercher
             // 
-            this.button7.Location = new System.Drawing.Point(509, 592);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(104, 28);
-            this.button7.TabIndex = 38;
-            this.button7.Text = "Rechercher";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.buttonRechercher.Location = new System.Drawing.Point(509, 592);
+            this.buttonRechercher.Name = "buttonRechercher";
+            this.buttonRechercher.Size = new System.Drawing.Size(104, 28);
+            this.buttonRechercher.TabIndex = 38;
+            this.buttonRechercher.Text = "Rechercher";
+            this.buttonRechercher.UseVisualStyleBackColor = true;
+            this.buttonRechercher.Click += new System.EventHandler(this.buttonRechercher_Click);
             // 
             // groupBox1
             // 
@@ -212,7 +213,7 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
             this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(21, 35);
+            this.radioButton1.Location = new System.Drawing.Point(21, 47);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(109, 19);
             this.radioButton1.TabIndex = 40;
@@ -223,7 +224,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(95, 78);
+            this.label1.Location = new System.Drawing.Point(95, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 24;
@@ -232,26 +233,40 @@
             // comboBoxFourniseur
             // 
             this.comboBoxFourniseur.FormattingEnabled = true;
-            this.comboBoxFourniseur.Location = new System.Drawing.Point(139, 75);
+            this.comboBoxFourniseur.Location = new System.Drawing.Point(139, 87);
             this.comboBoxFourniseur.Name = "comboBoxFourniseur";
             this.comboBoxFourniseur.Size = new System.Drawing.Size(121, 21);
             this.comboBoxFourniseur.TabIndex = 23;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.Location = new System.Drawing.Point(652, 232);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(404, 352);
             this.dataGridView1.TabIndex = 39;
+            // 
+            // buttonVider
+            // 
+            this.buttonVider.Location = new System.Drawing.Point(952, 592);
+            this.buttonVider.Name = "buttonVider";
+            this.buttonVider.Size = new System.Drawing.Size(104, 28);
+            this.buttonVider.TabIndex = 40;
+            this.buttonVider.Text = "Vider";
+            this.buttonVider.UseVisualStyleBackColor = true;
+            this.buttonVider.Click += new System.EventHandler(this.buttonVider_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 654);
+            this.Controls.Add(this.buttonVider);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.buttonRechercher);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button6);
@@ -262,6 +277,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -278,7 +294,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button buttonRechercher;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.CheckBox checkBox2;
@@ -290,6 +306,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxFourniseur;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button buttonVider;
     }
 }
 

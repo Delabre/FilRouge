@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="345f47a3-9c57-4963-a65f-3b73bfd632c4" name="Activity1" linkedPackageId="321634ad-3e8c-441f-b699-9db14048e476" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="f8ec3853-9742-426b-9f87-6db7b6f5e7cd">
+      <profileInstance Id="e457913f-cede-47e7-9331-5ee230817a89" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="0444ea71-5092-4403-9706-3aea20e150c7">
+      <profileInstance Id="b84f0c85-ad72-49e3-9325-dac8e4a66edb" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="cd512927-306c-4796-95de-9a938895d2a3" name="Activity1" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="b1daca67-b846-46f2-b174-b41c66b1d8f8" />
+        <nodes>
+          <initialNode Id="cbdf8097-1264-4462-bee8-065c8bb0e838" name="Initial1" isLeaf="false">
+            <elementDefinition Id="a0a1a324-7d17-4bb1-a50b-58f99525f71d" />
+            <flowNodeTargets>
+              <controlFlow Id="c98593cc-f131-477b-ae0f-c6518d24469c" isLeaf="false">
+                <opaqueActionMoniker Id="e2132eb0-ba95-4066-b1a3-4d6d89fff937" LastKnownName="Nouvelle commande" />
+                <elementDefinition Id="9b766daa-8aaa-4d3c-a9b6-5e908da7b2b2" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="e2132eb0-ba95-4066-b1a3-4d6d89fff937" name="Nouvelle commande" isLeaf="false">
+            <elementDefinition Id="5eea7e5d-dd5b-4cae-9666-77cc29244041" />
+            <flowNodeTargets>
+              <controlFlow Id="6270306b-b79f-4d51-b484-a2ba467a5ebb" isLeaf="false">
+                <opaqueActionMoniker Id="1c0ad7cc-fda8-45cc-afe6-00432432356e" LastKnownName="Sélectionne un Client " />
+                <elementDefinition Id="2b68e2ee-f1bf-4f58-b6bc-5124d7ab0545" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="1c0ad7cc-fda8-45cc-afe6-00432432356e" name="Sélectionne un Client " isLeaf="false">
+            <elementDefinition Id="435ca11b-ef2e-449e-8d5c-22f4e182fa52" />
+            <flowNodeTargets>
+              <controlFlow Id="7b6cc1f6-cdf3-4346-aca0-e91ec3853419" isLeaf="false">
+                <opaqueActionMoniker Id="b679b5c1-420d-408a-8ee2-5b660a3f3df8" LastKnownName="Ajouter un produit" />
+                <elementDefinition Id="e635e773-7e0d-40aa-9cd5-54fbb4d509e2" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="b679b5c1-420d-408a-8ee2-5b660a3f3df8" name="Ajouter un produit" isLeaf="false">
+            <elementDefinition Id="0883ca65-2ae3-4628-8121-53b8bd870a3b" />
+            <flowNodeTargets>
+              <controlFlow Id="91cfc260-1ce2-4426-b5a6-93d3348914d8" isLeaf="false">
+                <decisionNodeMoniker Id="829f4aa7-d18e-4282-9f25-a32fdb610482" LastKnownName="Decision1" />
+                <elementDefinition Id="e612bc44-ddc7-481c-b206-d921dd52ed5f" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="829f4aa7-d18e-4282-9f25-a32fdb610482" name="Decision1" isLeaf="false">
+            <elementDefinition Id="a2cd2a7b-71ae-456b-8fed-064964daccf0" />
+            <flowNodeTargets>
+              <controlFlow Id="74d0dc01-6829-4643-8ef5-e97288b59ab0" isLeaf="false">
+                <opaqueActionMoniker Id="b679b5c1-420d-408a-8ee2-5b660a3f3df8" LastKnownName="Ajouter un produit" />
+                <elementDefinition Id="786e6115-a76c-44b7-be92-087ae43dd4d9" />
+              </controlFlow>
+              <controlFlow Id="a2e00ef1-e48a-457f-aad5-2de1ec718f77" isLeaf="false">
+                <opaqueActionMoniker Id="fd9f3536-dcdb-4233-b631-89b0f16eb0ae" LastKnownName="Saisir les coordonnées client" />
+                <elementDefinition Id="205f4451-41ad-4b02-a039-f9ad696d8388" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="fd9f3536-dcdb-4233-b631-89b0f16eb0ae" name="Saisir les coordonnées client" isLeaf="false">
+            <elementDefinition Id="b1faba03-c093-433b-a2e1-92ba5c5ef2b7" />
+            <flowNodeTargets>
+              <controlFlow Id="2c55f3e4-f7b8-4ac8-8175-299bc19a0fbf" isLeaf="false">
+                <opaqueActionMoniker Id="58d70491-9550-4682-a82b-d87fa399e401" LastKnownName="Confirmer  l'achat" />
+                <elementDefinition Id="8431c6da-edaf-44e0-84dc-0d3d82ace68f" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode Id="bd1d6268-2563-4b10-af97-72ab80013d7c" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="f7adb795-8e06-413f-ac0f-cf1ae0feb7b3" />
+          </activityFinalNode>
+          <opaqueAction Id="58d70491-9550-4682-a82b-d87fa399e401" name="Confirmer  l'achat" isLeaf="false">
+            <elementDefinition Id="6d3dd421-52fd-4ab1-b091-9f984db74a21" />
+            <flowNodeTargets>
+              <controlFlow Id="29b6d6f1-dbc3-4de7-b109-25798d7cc0cd" isLeaf="false">
+                <activityFinalNodeMoniker Id="bd1d6268-2563-4b10-af97-72ab80013d7c" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="58031d9a-a805-4da4-908f-d88231d53b49" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="321634ad-3e8c-441f-b699-9db14048e476" name="green_village">
+    <elementDefinition Id="d6ac332e-affb-4cee-becf-b1e0f4bfb231" />
+  </package>
+</activityRootModel>

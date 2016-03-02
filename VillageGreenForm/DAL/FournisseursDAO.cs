@@ -40,11 +40,16 @@ namespace DAL
 
             SqlDataReader lecture = requete.ExecuteReader();
 
+            Fournisseurs tous = new Fournisseurs();
+            tous.Id_Fournisseur = 0;
+            tous.Nom_Fournisseur = "Tous";
+            resultat.Add(tous);
+
             while (lecture.Read())
             {
                 Fournisseurs fou = new Fournisseurs();
                 fou.Id_Fournisseur = Convert.ToInt32(lecture["Id_Fournisseur"]);
-                fou.Nom_Fournisseur = Convert.ToString(lecture["Nom_Fournisseur"]);
+                fou.Nom_Fournisseur = Convert.ToString(lecture["Nom_Fournisseur"]);               
                 resultat.Add(fou);
             }
             return resultat;

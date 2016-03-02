@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="53dd9b04-25a7-493b-a656-62ec5b4973aa" name="UMLUseCaseDiagram2" linkedPackageId="c252ae0f-f5ab-45eb-a7b0-f6ea6a388980" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="9ae325d7-698a-49ee-adec-7b528d71bc53" name="Client" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="41262b27-555d-42ab-a336-6dfff1e43888" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="8c1860ed-0864-46f6-a4f1-f8288f18b0ec" name="Commercial" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="02dbacd7-a0c9-4fa2-ab5c-912f9bc6b36b" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="8e85dde5-7e82-45d3-83d5-3fd0d19f2e3b" name="Patron" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c66c305a-cf27-4af9-b58b-ab8847ac28e9" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="1c20abec-ee0d-4486-8081-892168436cde" name="Comptable" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ce03f7ce-ff37-4ff7-ac6b-4406924ae9a4" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="b07f4a20-fa65-423d-a08e-17b9a7d66479" name="Service de gestion" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="54fcfb45-3ed1-49f4-bb30-6e8b96524547" />
+      </actor>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="c252ae0f-f5ab-45eb-a7b0-f6ea6a388980" name="green_village">
+    <elementDefinition Id="d6ac332e-affb-4cee-becf-b1e0f4bfb231" />
+    <profileInstances>
+      <packageHasProfileInstances Id="8c33b527-8784-451c-bc07-1b381b634f8f">
+        <profileInstance Id="52ff82c6-c0c8-49d2-9d61-f654cdcf23cd" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="0b02d432-21c7-4fb8-84a1-0bb6a965082a">
+        <profileInstance Id="6e830c6c-2093-4764-9016-5360d7302a18" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>

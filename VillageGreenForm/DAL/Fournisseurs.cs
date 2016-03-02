@@ -10,5 +10,7 @@ namespace DAL
     {
         public int Id_Fournisseur { get; set; }
         public string Nom_Fournisseur { get; set; }
+
+        public double CA { get; set; }
     }
 }

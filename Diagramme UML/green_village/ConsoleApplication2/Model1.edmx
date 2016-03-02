@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Village_GreenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Nom_Categorie" />
+          </Key>
+          <Property Name="Nom_Categorie" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Id_Client" />
+          </Key>
+          <Property Name="Id_Client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_Client" Type="varchar" MaxLength="50" />
+          <Property Name="Nom_Societe" Type="varchar" MaxLength="50" />
+          <Property Name="Prenom_client" Type="varchar" MaxLength="50" />
+          <Property Name="Coefficient_Client" Type="int" />
+          <Property Name="Telephone_Client" Type="varchar" MaxLength="10" />
+          <Property Name="Ville_Client" Type="varchar" MaxLength="30" />
+          <Property Name="Adresse_Client" Type="varchar" MaxLength="50" />
+          <Property Name="Code_Postal" Type="varchar" MaxLength="5" />
+          <Property Name="Professionnel" Type="bit" />
+          <Property Name="Ref_Commercial_clie" Type="int" />
+        </EntityType>
+        <EntityType Name="Colis">
+          <Key>
+            <PropertyRef Name="Id_Colis" />
+          </Key>
+          <Property Name="Id_Colis" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bon_Livraison" Type="varchar" MaxLength="100" />
+          <Property Name="Date_Envoi" Type="date" />
+          <Property Name="Ref_Commande_Coli" Type="int" />
+          <Property Name="Ref_Client_Coli" Type="int" />
+        </EntityType>
+        <EntityType Name="Commandes">
+          <Key>
+            <PropertyRef Name="Id_commande" />
+          </Key>
+          <Property Name="Id_commande" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Prix_Total_HT" Type="money" />
+          <Property Name="Prix_Total_TTC" Type="money" />
+          <Property Name="Prix_Total_Remise" Type="money" />
+          <Property Name="Reduction_Supplementaire" Type="money" />
+          <Property Name="Type_Paiement" Type="bit" />
+          <Property Name="Etat_Commande" Type="varchar" MaxLength="30" />
+          <Property Name="Date_Commande" Type="date" />
+          <Property Name="Date_Facturation" Type="date" />
+          <Property Name="Facture" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse_livraison" Type="varchar" MaxLength="100" />
+          <Property Name="Adresse_Facturation" Type="varchar" MaxLength="100" />
+          <Property Name="Ref_Client_Comm" Type="int" />
+          <Property Name="Ref_Commercial_Comm" Type="int" />
+        </EntityType>
+        <EntityType Name="Commerciaux">
+          <Key>
+            <PropertyRef Name="Id_Commercial" />
+          </Key>
+          <Property Name="Id_Commercial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_Commercial" Type="varchar" MaxLength="50" />
+          <Property Name="Prenom_Commercial" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Composer">
+          <Key>
+            <PropertyRef Name="Ref_Produit_Comp" />
+            <PropertyRef Name="Ref_commande_Comp" />
+          </Key>
+          <Property Name="Quantite" Type="int" />
+          <Property Name="Prix_Coefficient" Type="money" />
+          <Property Name="Ref_Produit_Comp" Type="int" Nullable="false" />
+          <Property Name="Ref_commande_Comp" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fournisseurs">
+          <Key>
+            <PropertyRef Name="Id_Fournisseur" />
+          </Key>
+          <Property Name="Id_Fournisseur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_Fournisseur" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Produits">
+          <Key>
+            <PropertyRef Name="Id_Produit" />
+          </Key>
+          <Property Name="Id_Produit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description_Produit" Type="varchar" MaxLength="2000" />
+          <Property Name="Libelle_Produit" Type="varchar" MaxLength="50" />
+          <Property Name="Photo_Produit" Type="varchar" MaxLength="25" />
+          <Property Name="Prix_HT_Produit" Type="money" />
+          <Property Name="Prix_Achat_Fournisseur" Type="money" />
+          <Property Name="Stock_Produit" Type="int" />
+          <Property Name="Publication_Produit" Type="bit" />
+          <Property Name="Ref_Nom_Sous_Categorie_Prod" Type="varchar" MaxLength="40" />
+          <Property Name="Ref_Fournisseur_Prod" Type="int" />
+        </EntityType>
+        <EntityType Name="Sous_Categories">
+          <Key>
+            <PropertyRef Name="Nom_Sous_Categorie" />
+          </Key>
+          <Property Name="Nom_Sous_Categorie" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Ref_Categorie" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <Association Name="FK__Clients__Ref_Com__1CF15040">
+          <End Role="Commerciaux" Type="Self.Commerciaux" Multiplicity="0..1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commerciaux">
+              <PropertyRef Name="Id_Commercial" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="Ref_Commercial_clie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Colis__Ref_Clien__286302EC">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Colis" Type="Self.Colis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id_Client" />
+            </Principal>
+            <Dependent Role="Colis">
+              <PropertyRef Name="Ref_Client_Coli" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Colis__Ref_Comma__276EDEB3">
+          <End Role="Commandes" Type="Self.Commandes" Multiplicity="0..1" />
+          <End Role="Colis" Type="Self.Colis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commandes">
+              <PropertyRef Name="Id_commande" />
+            </Principal>
+            <Dependent Role="Colis">
+              <PropertyRef Name="Ref_Commande_Coli" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commandes__Ref_C__1FCDBCEB">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Commandes" Type="Self.Commandes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id_Client" />
+            </Principal>
+            <Dependent Role="Commandes">
+              <PropertyRef Name="Ref_Client_Comm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commandes__Ref_C__20C1E124">
+          <End Role="Commerciaux" Type="Self.Commerciaux" Multiplicity="0..1" />
+          <End Role="Commandes" Type="Self.Commandes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commerciaux">
+              <PropertyRef Name="Id_Commercial" />
+            </Principal>
+            <Dependent Role="Commandes">
+              <PropertyRef Name="Ref_Commercial_Comm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Composer__Ref_co__24927208">
+          <End Role="Commandes" Type="Self.Commandes" Multiplicity="1" />
+          <End Role="Composer" Type="Self.Composer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commandes">
+              <PropertyRef Name="Id_commande" />
+            </Principal>
+            <Dependent Role="Composer">
+              <PropertyRef Name="Ref_commande_Comp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Composer__Ref_Pr__239E4DCF">
+          <End Role="Produits" Type="Self.Produits" Multiplicity="1" />
+          <End Role="Composer" Type="Self.Composer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produits">
+              <PropertyRef Name="Id_Produit" />
+            </Principal>
+            <Dependent Role="Composer">
+              <PropertyRef Name="Ref_Produit_Comp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Produits__Ref_Fo__1A14E395">
+          <End Role="Fournisseurs" Type="Self.Fournisseurs" Multiplicity="0..1" />
+          <End Role="Produits" Type="Self.Produits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fournisseurs">
+              <PropertyRef Name="Id_Fournisseur" />
+            </Principal>
+            <Dependent Role="Produits">
+              <PropertyRef Name="Ref_Fournisseur_Prod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Produits__Ref_No__1920BF5C">
+          <End Role="Sous_Categories" Type="Self.Sous_Categories" Multiplicity="0..1" />
+          <End Role="Produits" Type="Self.Produits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sous_Categories">
+              <PropertyRef Name="Nom_Sous_Categorie" />
+            </Principal>
+            <Dependent Role="Produits">
+              <PropertyRef Name="Ref_Nom_Sous_Categorie_Prod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sous_Cate__Ref_C__1273C1CD">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Sous_Categories" Type="Self.Sous_Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Nom_Categorie" />
+            </Principal>
+            <Dependent Role="Sous_Categories">
+              <PropertyRef Name="Ref_Categorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Village_GreenModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="svg" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="svg" store:Type="Tables" />
+          <EntitySet Name="Colis" EntityType="Self.Colis" Schema="svg" store:Type="Tables" />
+          <EntitySet Name="Commandes" EntityType="Self.Commandes" Schema="svg" store:Type="Tables" />
+          <EntitySet Name="Commerciaux" EntityType="Self.Commerciaux" Schema="svg" store:Type="Tables" />
+          <EntitySet Name="Composer" EntityType="Self.Composer" Schema="svg" store:Type="Tables" />
+          <EntitySet Name="Fournisseurs" EntityType="Self.Fournisseurs" Schema="svg" store:Type="Tables" />
+          <EntitySet Name="Produits" EntityType="Self.Produits" Schema="svg" store:Type="Tables" />
+          <EntitySet Name="Sous_Categories" EntityType="Self.Sous_Categories" Schema="svg" store:Type="Tables" />
+          <AssociationSet Name="FK__Clients__Ref_Com__1CF15040" Association="Self.FK__Clients__Ref_Com__1CF15040">
+            <End Role="Commerciaux" EntitySet="Commerciaux" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Colis__Ref_Clien__286302EC" Association="Self.FK__Colis__Ref_Clien__286302EC">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Colis" EntitySet="Colis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Colis__Ref_Comma__276EDEB3" Association="Self.FK__Colis__Ref_Comma__276EDEB3">
+            <End Role="Commandes" EntitySet="Commandes" />
+            <End Role="Colis" EntitySet="Colis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commandes__Ref_C__1FCDBCEB" Association="Self.FK__Commandes__Ref_C__1FCDBCEB">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Commandes" EntitySet="Commandes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commandes__Ref_C__20C1E124" Association="Self.FK__Commandes__Ref_C__20C1E124">
+            <End Role="Commerciaux" EntitySet="Commerciaux" />
+            <End Role="Commandes" EntitySet="Commandes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Composer__Ref_co__24927208" Association="Self.FK__Composer__Ref_co__24927208">
+            <End Role="Commandes" EntitySet="Commandes" />
+            <End Role="Composer" EntitySet="Composer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Composer__Ref_Pr__239E4DCF" Association="Self.FK__Composer__Ref_Pr__239E4DCF">
+            <End Role="Produits" EntitySet="Produits" />
+            <End Role="Composer" EntitySet="Composer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Produits__Ref_Fo__1A14E395" Association="Self.FK__Produits__Ref_Fo__1A14E395">
+            <End Role="Fournisseurs" EntitySet="Fournisseurs" />
+            <End Role="Produits" EntitySet="Produits" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Produits__Ref_No__1920BF5C" Association="Self.FK__Produits__Ref_No__1920BF5C">
+            <End Role="Sous_Categories" EntitySet="Sous_Categories" />
+            <End Role="Produits" EntitySet="Produits" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sous_Cate__Ref_C__1273C1CD" Association="Self.FK__Sous_Cate__Ref_C__1273C1CD">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Sous_Categories" EntitySet="Sous_Categories" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Village_GreenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Nom_Categorie" />
+          </Key>
+          <Property Name="Nom_Categorie" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Sous_Categories" Relationship="Self.FK__Sous_Cate__Ref_C__1273C1CD" FromRole="Categories" ToRole="Sous_Categories" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Id_Client" />
+          </Key>
+          <Property Name="Id_Client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Client" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nom_Societe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prenom_client" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Coefficient_Client" Type="Int32" />
+          <Property Name="Telephone_Client" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Ville_Client" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse_Client" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Code_Postal" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Professionnel" Type="Boolean" />
+          <Property Name="Ref_Commercial_clie" Type="Int32" />
+          <NavigationProperty Name="Commerciaux" Relationship="Self.FK__Clients__Ref_Com__1CF15040" FromRole="Clients" ToRole="Commerciaux" />
+          <NavigationProperty Name="Colis" Relationship="Self.FK__Colis__Ref_Clien__286302EC" FromRole="Clients" ToRole="Colis" />
+          <NavigationProperty Name="Commandes" Relationship="Self.FK__Commandes__Ref_C__1FCDBCEB" FromRole="Clients" ToRole="Commandes" />
+        </EntityType>
+        <EntityType Name="Colis">
+          <Key>
+            <PropertyRef Name="Id_Colis" />
+          </Key>
+          <Property Name="Id_Colis" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bon_Livraison" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Envoi" Type="DateTime" Precision="0" />
+          <Property Name="Ref_Commande_Coli" Type="Int32" />
+          <Property Name="Ref_Client_Coli" Type="Int32" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK__Colis__Ref_Clien__286302EC" FromRole="Colis" ToRole="Clients" />
+          <NavigationProperty Name="Commandes" Relationship="Self.FK__Colis__Ref_Comma__276EDEB3" FromRole="Colis" ToRole="Commandes" />
+        </EntityType>
+        <EntityType Name="Commandes">
+          <Key>
+            <PropertyRef Name="Id_commande" />
+          </Key>
+          <Property Name="Id_commande" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Prix_Total_HT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Prix_Total_TTC" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Prix_Total_Remise" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Reduction_Supplementaire" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Type_Paiement" Type="Boolean" />
+          <Property Name="Etat_Commande" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Commande" Type="DateTime" Precision="0" />
+          <Property Name="Date_Facturation" Type="DateTime" Precision="0" />
+          <Property Name="Facture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse_livraison" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse_Facturation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Ref_Client_Comm" Type="Int32" />
+          <Property Name="Ref_Commercial_Comm" Type="Int32" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK__Commandes__Ref_C__1FCDBCEB" FromRole="Commandes" ToRole="Clients" />
+          <NavigationProperty Name="Colis" Relationship="Self.FK__Colis__Ref_Comma__276EDEB3" FromRole="Commandes" ToRole="Colis" />
+          <NavigationProperty Name="Commerciaux" Relationship="Self.FK__Commandes__Ref_C__20C1E124" FromRole="Commandes" ToRole="Commerciaux" />
+          <NavigationProperty Name="Composer" Relationship="Self.FK__Composer__Ref_co__24927208" FromRole="Commandes" ToRole="Composer" />
+        </EntityType>
+        <EntityType Name="Commerciaux">
+          <Key>
+            <PropertyRef Name="Id_Commercial" />
+          </Key>
+          <Property Name="Id_Commercial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Commercial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prenom_Commercial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK__Clients__Ref_Com__1CF15040" FromRole="Commerciaux" ToRole="Clients" />
+          <NavigationProperty Name="Commandes" Relationship="Self.FK__Commandes__Ref_C__20C1E124" FromRole="Commerciaux" ToRole="Commandes" />
+        </EntityType>
+        <EntityType Name="Composer">
+          <Key>
+            <PropertyRef Name="Ref_Produit_Comp" />
+            <PropertyRef Name="Ref_commande_Comp" />
+          </Key>
+          <Property Name="Quantite" Type="Int32" />
+          <Property Name="Prix_Coefficient" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Ref_Produit_Comp" Type="Int32" Nullable="false" />
+          <Property Name="Ref_commande_Comp" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Commandes" Relationship="Self.FK__Composer__Ref_co__24927208" FromRole="Composer" ToRole="Commandes" />
+          <NavigationProperty Name="Produits" Relationship="Self.FK__Composer__Ref_Pr__239E4DCF" FromRole="Composer" ToRole="Produits" />
+        </EntityType>
+        <EntityType Name="Fournisseurs">
+          <Key>
+            <PropertyRef Name="Id_Fournisseur" />
+          </Key>
+          <Property Name="Id_Fournisseur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Fournisseur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Produits" Relationship="Self.FK__Produits__Ref_Fo__1A14E395" FromRole="Fournisseurs" ToRole="Produits" />
+        </EntityType>
+        <EntityType Name="Produits">
+          <Key>
+            <PropertyRef Name="Id_Produit" />
+          </Key>
+          <Property Name="Id_Produit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description_Produit" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Libelle_Produit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Photo_Produit" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Prix_HT_Produit" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Prix_Achat_Fournisseur" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Stock_Produit" Type="Int32" />
+          <Property Name="Publication_Produit" Type="Boolean" />
+          <Property Name="Ref_Nom_Sous_Categorie_Prod" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Ref_Fournisseur_Prod" Type="Int32" />
+          <NavigationProperty Name="Composer" Relationship="Self.FK__Composer__Ref_Pr__239E4DCF" FromRole="Produits" ToRole="Composer" />
+          <NavigationProperty Name="Fournisseurs" Relationship="Self.FK__Produits__Ref_Fo__1A14E395" FromRole="Produits" ToRole="Fournisseurs" />
+          <NavigationProperty Name="Sous_Categories" Relationship="Self.FK__Produits__Ref_No__1920BF5C" FromRole="Produits" ToRole="Sous_Categories" />
+        </EntityType>
+        <EntityType Name="Sous_Categories">
+          <Key>
+            <PropertyRef Name="Nom_Sous_Categorie" />
+          </Key>
+          <Property Name="Nom_Sous_Categorie" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ref_Categorie" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK__Sous_Cate__Ref_C__1273C1CD" FromRole="Sous_Categories" ToRole="Categories" />
+          <NavigationProperty Name="Produits" Relationship="Self.FK__Produits__Ref_No__1920BF5C" FromRole="Sous_Categories" ToRole="Produits" />
+        </EntityType>
+        <Association Name="FK__Sous_Cate__Ref_C__1273C1CD">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Sous_Categories" Type="Self.Sous_Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Nom_Categorie" />
+            </Principal>
+            <Dependent Role="Sous_Categories">
+              <PropertyRef Name="Ref_Categorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clients__Ref_Com__1CF15040">
+          <End Role="Commerciaux" Type="Self.Commerciaux" Multiplicity="0..1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commerciaux">
+              <PropertyRef Name="Id_Commercial" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="Ref_Commercial_clie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Colis__Ref_Clien__286302EC">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Colis" Type="Self.Colis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id_Client" />
+            </Principal>
+            <Dependent Role="Colis">
+              <PropertyRef Name="Ref_Client_Coli" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commandes__Ref_C__1FCDBCEB">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Commandes" Type="Self.Commandes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id_Client" />
+            </Principal>
+            <Dependent Role="Commandes">
+              <PropertyRef Name="Ref_Client_Comm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Colis__Ref_Comma__276EDEB3">
+          <End Role="Commandes" Type="Self.Commandes" Multiplicity="0..1" />
+          <End Role="Colis" Type="Self.Colis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commandes">
+              <PropertyRef Name="Id_commande" />
+            </Principal>
+            <Dependent Role="Colis">
+              <PropertyRef Name="Ref_Commande_Coli" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commandes__Ref_C__20C1E124">
+          <End Role="Commerciaux" Type="Self.Commerciaux" Multiplicity="0..1" />
+          <End Role="Commandes" Type="Self.Commandes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commerciaux">
+              <PropertyRef Name="Id_Commercial" />
+            </Principal>
+            <Dependent Role="Commandes">
+              <PropertyRef Name="Ref_Commercial_Comm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Composer__Ref_co__24927208">
+          <End Role="Commandes" Type="Self.Commandes" Multiplicity="1" />
+          <End Role="Composer" Type="Self.Composer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commandes">
+              <PropertyRef Name="Id_commande" />
+            </Principal>
+            <Dependent Role="Composer">
+              <PropertyRef Name="Ref_commande_Comp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Composer__Ref_Pr__239E4DCF">
+          <End Role="Produits" Type="Self.Produits" Multiplicity="1" />
+          <End Role="Composer" Type="Self.Composer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produits">
+              <PropertyRef Name="Id_Produit" />
+            </Principal>
+            <Dependent Role="Composer">
+              <PropertyRef Name="Ref_Produit_Comp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Produits__Ref_Fo__1A14E395">
+          <End Role="Fournisseurs" Type="Self.Fournisseurs" Multiplicity="0..1" />
+          <End Role="Produits" Type="Self.Produits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fournisseurs">
+              <PropertyRef Name="Id_Fournisseur" />
+            </Principal>
+            <Dependent Role="Produits">
+              <PropertyRef Name="Ref_Fournisseur_Prod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Produits__Ref_No__1920BF5C">
+          <End Role="Sous_Categories" Type="Self.Sous_Categories" Multiplicity="0..1" />
+          <End Role="Produits" Type="Self.Produits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sous_Categories">
+              <PropertyRef Name="Nom_Sous_Categorie" />
+            </Principal>
+            <Dependent Role="Produits">
+              <PropertyRef Name="Ref_Nom_Sous_Categorie_Prod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Village_GreenEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="Colis" EntityType="Self.Colis" />
+          <EntitySet Name="Commandes" EntityType="Self.Commandes" />
+          <EntitySet Name="Commerciaux" EntityType="Self.Commerciaux" />
+          <EntitySet Name="Composer" EntityType="Self.Composer" />
+          <EntitySet Name="Fournisseurs" EntityType="Self.Fournisseurs" />
+          <EntitySet Name="Produits" EntityType="Self.Produits" />
+          <EntitySet Name="Sous_Categories" EntityType="Self.Sous_Categories" />
+          <AssociationSet Name="FK__Sous_Cate__Ref_C__1273C1CD" Association="Self.FK__Sous_Cate__Ref_C__1273C1CD">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Sous_Categories" EntitySet="Sous_Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clients__Ref_Com__1CF15040" Association="Self.FK__Clients__Ref_Com__1CF15040">
+            <End Role="Commerciaux" EntitySet="Commerciaux" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Colis__Ref_Clien__286302EC" Association="Self.FK__Colis__Ref_Clien__286302EC">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Colis" EntitySet="Colis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commandes__Ref_C__1FCDBCEB" Association="Self.FK__Commandes__Ref_C__1FCDBCEB">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Commandes" EntitySet="Commandes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Colis__Ref_Comma__276EDEB3" Association="Self.FK__Colis__Ref_Comma__276EDEB3">
+            <End Role="Commandes" EntitySet="Commandes" />
+            <End Role="Colis" EntitySet="Colis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commandes__Ref_C__20C1E124" Association="Self.FK__Commandes__Ref_C__20C1E124">
+            <End Role="Commerciaux" EntitySet="Commerciaux" />
+            <End Role="Commandes" EntitySet="Commandes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Composer__Ref_co__24927208" Association="Self.FK__Composer__Ref_co__24927208">
+            <End Role="Commandes" EntitySet="Commandes" />
+            <End Role="Composer" EntitySet="Composer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Composer__Ref_Pr__239E4DCF" Association="Self.FK__Composer__Ref_Pr__239E4DCF">
+            <End Role="Produits" EntitySet="Produits" />
+            <End Role="Composer" EntitySet="Composer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Produits__Ref_Fo__1A14E395" Association="Self.FK__Produits__Ref_Fo__1A14E395">
+            <End Role="Fournisseurs" EntitySet="Fournisseurs" />
+            <End Role="Produits" EntitySet="Produits" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Produits__Ref_No__1920BF5C" Association="Self.FK__Produits__Ref_No__1920BF5C">
+            <End Role="Sous_Categories" EntitySet="Sous_Categories" />
+            <End Role="Produits" EntitySet="Produits" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Village_GreenModelStoreContainer" CdmEntityContainer="Village_GreenEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="Village_GreenModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="Nom_Categorie" ColumnName="Nom_Categorie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="Village_GreenModel.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="Id_Client" ColumnName="Id_Client" />
+                <ScalarProperty Name="Nom_Client" ColumnName="Nom_Client" />
+                <ScalarProperty Name="Nom_Societe" ColumnName="Nom_Societe" />
+                <ScalarProperty Name="Prenom_client" ColumnName="Prenom_client" />
+                <ScalarProperty Name="Coefficient_Client" ColumnName="Coefficient_Client" />
+                <ScalarProperty Name="Telephone_Client" ColumnName="Telephone_Client" />
+                <ScalarProperty Name="Ville_Client" ColumnName="Ville_Client" />
+                <ScalarProperty Name="Adresse_Client" ColumnName="Adresse_Client" />
+                <ScalarProperty Name="Code_Postal" ColumnName="Code_Postal" />
+                <ScalarProperty Name="Professionnel" ColumnName="Professionnel" />
+                <ScalarProperty Name="Ref_Commercial_clie" ColumnName="Ref_Commercial_clie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colis">
+            <EntityTypeMapping TypeName="Village_GreenModel.Colis">
+              <MappingFragment StoreEntitySet="Colis">
+                <ScalarProperty Name="Id_Colis" ColumnName="Id_Colis" />
+                <ScalarProperty Name="Bon_Livraison" ColumnName="Bon_Livraison" />
+                <ScalarProperty Name="Date_Envoi" ColumnName="Date_Envoi" />
+                <ScalarProperty Name="Ref_Commande_Coli" ColumnName="Ref_Commande_Coli" />
+                <ScalarProperty Name="Ref_Client_Coli" ColumnName="Ref_Client_Coli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commandes">
+            <EntityTypeMapping TypeName="Village_GreenModel.Commandes">
+              <MappingFragment StoreEntitySet="Commandes">
+                <ScalarProperty Name="Id_commande" ColumnName="Id_commande" />
+                <ScalarProperty Name="Prix_Total_HT" ColumnName="Prix_Total_HT" />
+                <ScalarProperty Name="Prix_Total_TTC" ColumnName="Prix_Total_TTC" />
+                <ScalarProperty Name="Prix_Total_Remise" ColumnName="Prix_Total_Remise" />
+                <ScalarProperty Name="Reduction_Supplementaire" ColumnName="Reduction_Supplementaire" />
+                <ScalarProperty Name="Type_Paiement" ColumnName="Type_Paiement" />
+                <ScalarProperty Name="Etat_Commande" ColumnName="Etat_Commande" />
+                <ScalarProperty Name="Date_Commande" ColumnName="Date_Commande" />
+                <ScalarProperty Name="Date_Facturation" ColumnName="Date_Facturation" />
+                <ScalarProperty Name="Facture" ColumnName="Facture" />
+                <ScalarProperty Name="Adresse_livraison" ColumnName="Adresse_livraison" />
+                <ScalarProperty Name="Adresse_Facturation" ColumnName="Adresse_Facturation" />
+                <ScalarProperty Name="Ref_Client_Comm" ColumnName="Ref_Client_Comm" />
+                <ScalarProperty Name="Ref_Commercial_Comm" ColumnName="Ref_Commercial_Comm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commerciaux">
+            <EntityTypeMapping TypeName="Village_GreenModel.Commerciaux">
+              <MappingFragment StoreEntitySet="Commerciaux">
+                <ScalarProperty Name="Id_Commercial" ColumnName="Id_Commercial" />
+                <ScalarProperty Name="Nom_Commercial" ColumnName="Nom_Commercial" />
+                <ScalarProperty Name="Prenom_Commercial" ColumnName="Prenom_Commercial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Composer">
+            <EntityTypeMapping TypeName="Village_GreenModel.Composer">
+              <MappingFragment StoreEntitySet="Composer">
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="Prix_Coefficient" ColumnName="Prix_Coefficient" />
+                <ScalarProperty Name="Ref_Produit_Comp" ColumnName="Ref_Produit_Comp" />
+                <ScalarProperty Name="Ref_commande_Comp" ColumnName="Ref_commande_Comp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fournisseurs">
+            <EntityTypeMapping TypeName="Village_GreenModel.Fournisseurs">
+              <MappingFragment StoreEntitySet="Fournisseurs">
+                <ScalarProperty Name="Id_Fournisseur" ColumnName="Id_Fournisseur" />
+                <ScalarProperty Name="Nom_Fournisseur" ColumnName="Nom_Fournisseur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produits">
+            <EntityTypeMapping TypeName="Village_GreenModel.Produits">
+              <MappingFragment StoreEntitySet="Produits">
+                <ScalarProperty Name="Id_Produit" ColumnName="Id_Produit" />
+                <ScalarProperty Name="Description_Produit" ColumnName="Description_Produit" />
+                <ScalarProperty Name="Libelle_Produit" ColumnName="Libelle_Produit" />
+                <ScalarProperty Name="Photo_Produit" ColumnName="Photo_Produit" />
+                <ScalarProperty Name="Prix_HT_Produit" ColumnName="Prix_HT_Produit" />
+                <ScalarProperty Name="Prix_Achat_Fournisseur" ColumnName="Prix_Achat_Fournisseur" />
+                <ScalarProperty Name="Stock_Produit" ColumnName="Stock_Produit" />
+                <ScalarProperty Name="Publication_Produit" ColumnName="Publication_Produit" />
+                <ScalarProperty Name="Ref_Nom_Sous_Categorie_Prod" ColumnName="Ref_Nom_Sous_Categorie_Prod" />
+                <ScalarProperty Name="Ref_Fournisseur_Prod" ColumnName="Ref_Fournisseur_Prod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sous_Categories">
+            <EntityTypeMapping TypeName="Village_GreenModel.Sous_Categories">
+              <MappingFragment StoreEntitySet="Sous_Categories">
+                <ScalarProperty Name="Nom_Sous_Categorie" ColumnName="Nom_Sous_Categorie" />
+                <ScalarProperty Name="Ref_Categorie" ColumnName="Ref_Categorie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

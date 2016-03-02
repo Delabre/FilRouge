@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1319a8d023c0466182018b447d573036" Name="Diagram1">
+        <EntityTypeShape EntityType="Village_GreenModel.Categories" Width="1.5" PointX="5.875" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Village_GreenModel.Clients" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Village_GreenModel.Colis" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Village_GreenModel.Commandes" Width="1.5" PointX="8.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Village_GreenModel.Commerciaux" Width="1.5" PointX="0.875" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Village_GreenModel.Composer" Width="1.5" PointX="10.375" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Village_GreenModel.Fournisseurs" Width="1.5" PointX="12.375" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Village_GreenModel.Produits" Width="1.5" PointX="10.375" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Village_GreenModel.Sous_Categories" Width="1.5" PointX="8.125" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="Village_GreenModel.FK__Sous_Cate__Ref_C__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="Village_GreenModel.FK__Clients__Ref_Com__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="Village_GreenModel.FK__Colis__Ref_Clien__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="Village_GreenModel.FK__Commandes__Ref_C__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="Village_GreenModel.FK__Colis__Ref_Comma__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="Village_GreenModel.FK__Commandes__Ref_C__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="Village_GreenModel.FK__Composer__Ref_co__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="Village_GreenModel.FK__Composer__Ref_Pr__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="Village_GreenModel.FK__Produits__Ref_Fo__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="Village_GreenModel.FK__Produits__Ref_No__1920BF5C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
