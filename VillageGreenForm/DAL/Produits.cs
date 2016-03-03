@@ -16,6 +16,6 @@ namespace DAL
         public int Stock_Produit { get; set; }
         public int Publication_Produit { get; set; }
         public string Nom_Sous_Categorie { get; set; }
-        public int Id_Fournisseur { get; set; }    
+        public int Id_Commercial { get; set; }    
     }
 }
