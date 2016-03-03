@@ -61,6 +61,7 @@
             this.LabelIdentifiant = new System.Windows.Forms.Label();
             this.buttonConfirmer = new System.Windows.Forms.Button();
             this.ButtonAnnuler = new System.Windows.Forms.Button();
+            this.checkBoxProf = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -151,6 +152,7 @@
             this.buttonAjouter.TabIndex = 48;
             this.buttonAjouter.Text = "Ajouter";
             this.buttonAjouter.UseVisualStyleBackColor = true;
+            this.buttonAjouter.Click += new System.EventHandler(this.buttonAjouter_Click);
             // 
             // buttonModifier
             // 
@@ -164,6 +166,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxProf);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.numericUpDown1);
@@ -364,9 +367,8 @@
             this.LabelIdentifiant.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelIdentifiant.Location = new System.Drawing.Point(86, 44);
             this.LabelIdentifiant.Name = "LabelIdentifiant";
-            this.LabelIdentifiant.Size = new System.Drawing.Size(21, 16);
+            this.LabelIdentifiant.Size = new System.Drawing.Size(0, 16);
             this.LabelIdentifiant.TabIndex = 51;
-            this.LabelIdentifiant.Text = "Id";
             // 
             // buttonConfirmer
             // 
@@ -389,6 +391,18 @@
             this.ButtonAnnuler.UseVisualStyleBackColor = true;
             this.ButtonAnnuler.Visible = false;
             this.ButtonAnnuler.Click += new System.EventHandler(this.ButtonAnnuler_Click);
+            // 
+            // checkBoxProf
+            // 
+            this.checkBoxProf.AutoSize = true;
+            this.checkBoxProf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxProf.Location = new System.Drawing.Point(22, 366);
+            this.checkBoxProf.Name = "checkBoxProf";
+            this.checkBoxProf.Size = new System.Drawing.Size(109, 20);
+            this.checkBoxProf.TabIndex = 69;
+            this.checkBoxProf.Text = "Professionnel";
+            this.checkBoxProf.UseVisualStyleBackColor = true;
+            this.checkBoxProf.Visible = false;
             // 
             // Form1
             // 
@@ -453,6 +467,7 @@
         private System.Windows.Forms.Button ButtonAnnuler;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBoxProf;
     }
 }
 

@@ -78,9 +78,8 @@ namespace DAL
             connexion = new SqlConnection("server =.; database = Village_Green; Integrated Security = True");
             connexion.Open();
 
-            SqlCommand requete = new SqlCommand(@"insert into client (Id_Client, Nom_Client, Prenom_Client, Coefficient_Client, Telephone_Client, Ville_Client, Adresse_Client, Code_Postal, Professionnel, ref_commercial_clie) 
-                                                  values (@id, @nom, @prenom, @coeff, @tel, @ville, @adr, @cp, @prof, @idcom)", connexion);
-            requete.Parameters.AddWithValue("@id", cli.id_CLient);
+            SqlCommand requete = new SqlCommand(@"insert into svg.Clients (Nom_Client, Prenom_Client, Coefficient_Client, Telephone_Client, Ville_Client, Adresse_Client, Code_Postal, Professionnel, ref_commercial_clie) 
+                                                  values (@nom, @prenom, @coeff, @tel, @ville, @adr, @cp, @prof, @idcom)", connexion);
             requete.Parameters.AddWithValue("@nom", cli.Nom_Client);
             requete.Parameters.AddWithValue("@prenom", cli.Prenom_Client);
             requete.Parameters.AddWithValue("@coeff", cli.Coefficient_CLient);

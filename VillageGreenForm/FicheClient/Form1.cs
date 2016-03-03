@@ -13,6 +13,7 @@ namespace FicheClient
 {
     public partial class Form1 : Form
     {
+       
         string action = "";
     
         public Form1()
@@ -99,16 +100,12 @@ namespace FicheClient
                 {
                     labelProfessionnel.Text = "Particulier";
                 }
-            }
+            }           
         }
 
         private void ButtonAnnuler_Click(object sender, EventArgs e)
         {
-            dataGridView1.ClearSelection();
-
-            buttonConfirmer.Visible = false;
-            ButtonAnnuler.Visible = false;
-            groupBox1.Visible = false;
+            nettoyage(); // Méthode de nettoyage !
         }
 
         private void buttonConfirmer_Click(object sender, EventArgs e)
@@ -116,6 +113,7 @@ namespace FicheClient
             if (action == "modifier")
             {
                 Clients cli = new Clients();
+
                 cli.id_CLient = Convert.ToInt32(LabelIdentifiant.Text);
                 cli.Nom_Client = textBoxNom.Text;
                 cli.Prenom_Client = textBoxPrenom.Text;
@@ -130,6 +128,82 @@ namespace FicheClient
 
                 data.Update(cli);
             }
+            if (action == "ajouter")
+            {
+                Clients cli = new Clients();
+
+                cli.Nom_Client = textBoxNom.Text;
+                cli.Prenom_Client = textBoxPrenom.Text;
+                cli.Ville_Client = textBoxVille.Text;
+                cli.Telephone_Client = textBoxTel.Text;
+                cli.Adresse_Client = textBoxAdresse.Text;
+                cli.Code_Postal = textBoxCp.Text;               
+                cli.Coefficient_CLient = (int)numericUpDown1.Value;
+                if (checkBoxProf.Checked == true)
+                {
+                    cli.Professionnel = true;
+                    cli.id_Commercial = 2;
+                }
+                else
+                {
+                    cli.Professionnel = false;
+                    cli.id_Commercial = 1;
+                }
+
+                ClientsDAO ajout = new ClientsDAO();
+
+                ajout.Insert(cli);
+
+                nettoyage(); // Méthode de nettoyage !
+            }
+
+            ClientsDAO liste = new ClientsDAO();
+
+            dataGridView1.DataSource = liste.list();
+            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
+            dataGridView1.Columns[7].Visible = false;
+            dataGridView1.Columns[8].Visible = false;
+            dataGridView1.Columns[9].Visible = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dataGridView1.Enabled = true;
         }
+
+        private void buttonAjouter_Click(object sender, EventArgs e)
+        {
+            action = "ajouter";
+
+            dataGridView1.ClearSelection();
+            buttonConfirmer.Visible = true;
+            ButtonAnnuler.Visible = true;
+            groupBox1.Visible = true;
+            dataGridView1.Enabled = false;
+            checkBoxProf.Visible = true;
+        }
+
+
+        // Méthode de nettoyage !
+        //========================================================================================
+        public void nettoyage()
+        {
+            buttonConfirmer.Visible = false;
+            ButtonAnnuler.Visible = false;
+            groupBox1.Visible = false;
+            dataGridView1.Enabled = false;
+
+            textBoxNom.Clear();
+            textBoxPrenom.Clear();
+            textBoxVille.Clear();
+            textBoxTel.Clear();
+            textBoxAdresse.Clear();
+            textBoxCp.Clear();
+            textBoxIdCom.Clear();
+            LabelIdentifiant.Text = "";
+            numericUpDown1.Value = 0;
+        }
+
     }
 }
