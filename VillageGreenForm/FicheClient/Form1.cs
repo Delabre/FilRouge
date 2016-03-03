@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
+using System.Text.RegularExpressions;
 
 namespace FicheClient
 {
@@ -23,6 +24,7 @@ namespace FicheClient
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             ClientsDAO liste = new ClientsDAO();
 
             dataGridView1.DataSource = liste.list();
@@ -34,10 +36,16 @@ namespace FicheClient
             dataGridView1.Columns[8].Visible = false;
             dataGridView1.Columns[9].Visible = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dataGridView1.ClearSelection();
         }
 
         private void buttonModifier_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count == 0 )
+            {
+                return;
+            }
             action = "modifier";
 
             buttonConfirmer.Visible = true;
@@ -152,9 +160,13 @@ namespace FicheClient
 
                 ClientsDAO ajout = new ClientsDAO();
 
-                ajout.Insert(cli);
+                ajout.Insert(cli);              
+            }
+            //SUPER REGEX !!!!!!
+            //====================================================================================
+            if (Regex.IsMatch(textBoxNom.Text, @"^[A-Z]+[a-z]? \s? [A-Z]?[a-z]? $") )
+            {
 
-                nettoyage(); // Méthode de nettoyage !
             }
 
             ClientsDAO liste = new ClientsDAO();
@@ -169,12 +181,14 @@ namespace FicheClient
             dataGridView1.Columns[9].Visible = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            dataGridView1.Enabled = true;
+            nettoyage(); // Méthode de nettoyage !
         }
 
         private void buttonAjouter_Click(object sender, EventArgs e)
         {
             action = "ajouter";
+
+            nettoyage(); // Méthode de nettoyage !
 
             dataGridView1.ClearSelection();
             buttonConfirmer.Visible = true;
@@ -182,6 +196,7 @@ namespace FicheClient
             groupBox1.Visible = true;
             dataGridView1.Enabled = false;
             checkBoxProf.Visible = true;
+            buttonModifier.Enabled = false;
         }
 
 
@@ -193,6 +208,10 @@ namespace FicheClient
             ButtonAnnuler.Visible = false;
             groupBox1.Visible = false;
             dataGridView1.Enabled = false;
+            dataGridView1.Enabled = true;
+            buttonModifier.Enabled = true;
+
+            dataGridView1.ClearSelection();
 
             textBoxNom.Clear();
             textBoxPrenom.Clear();
@@ -205,5 +224,16 @@ namespace FicheClient
             numericUpDown1.Value = 0;
         }
 
+        private void textBoxNom_TextChanged(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(textBoxNom.Text, @"^[A-Z]{1,}[a-z]+([ ][A-Z]{1,}[a-z]+)?$"))  // REGEX NOM ET PRENOM !!!!!!!!!!!!!!!!!!!!!!!!!
+            {
+                textBoxNom.ForeColor = Color.Red;
+            }
+            else
+            {
+                textBoxNom.ForeColor = Color.Black;
+            }
+        }
     }
 }
