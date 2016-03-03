@@ -110,5 +110,13 @@ namespace FicheClient
             ButtonAnnuler.Visible = false;
             groupBox1.Visible = false;
         }
+
+        private void buttonConfirmer_Click(object sender, EventArgs e)
+        {
+            if (action == "modifier")
+            {
+
+            }
+        }
     }
 }

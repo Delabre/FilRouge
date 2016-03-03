@@ -71,5 +71,28 @@ namespace DAL
 
             return cli;
         }
+
+        public void Insert(Clients cli)
+            {
+
+            connexion = new SqlConnection("server =.; database = Village_Green; Integrated Security = True");
+            connexion.Open();
+
+            SqlCommand requete = new SqlCommand(@"insert into client (Id_Client, Nom_Client, Prenom_Client, Coefficient_Client, Telephone_Client, Ville_Client, Adresse_Client, Code_Postal, Professionnel, ref_commercial_clie) 
+                                                  values (@id, @nom, @prenom, @coeff, @tel, @ville, @adr, @cp, @prof, @idcom)", connexion);
+            requete.Parameters.AddWithValue("@id", cli.id_CLient);
+            requete.Parameters.AddWithValue("@nom", cli.Nom_Client);
+            requete.Parameters.AddWithValue("@prenom", cli.Prenom_Client);
+            requete.Parameters.AddWithValue("@coeff", cli.Coefficient_CLient);
+            requete.Parameters.AddWithValue("@tel", cli.Telephone_Client);
+            requete.Parameters.AddWithValue("@ville", cli.Ville_Client);
+            requete.Parameters.AddWithValue("@adr", cli.Adresse_Client);
+            requete.Parameters.AddWithValue("@cp", cli.Code_Postal);
+            requete.Parameters.AddWithValue("@prof", cli.Professionnel);
+            requete.Parameters.AddWithValue("@idcom", cli.id_Commercial);
+
+            requete.ExecuteNonQuery();
+            connexion.Close();
+            }
     }
 }

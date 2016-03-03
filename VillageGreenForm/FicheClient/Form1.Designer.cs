@@ -377,6 +377,7 @@
             this.buttonConfirmer.Text = "Confirmer";
             this.buttonConfirmer.UseVisualStyleBackColor = true;
             this.buttonConfirmer.Visible = false;
+            this.buttonConfirmer.Click += new System.EventHandler(this.buttonConfirmer_Click);
             // 
             // ButtonAnnuler
             // 
