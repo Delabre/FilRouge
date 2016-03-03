@@ -100,9 +100,11 @@ namespace DAL
             connexion = new SqlConnection("server =.; database = Village_Green; Integrated Security = True");
             connexion.Open();
 
-            SqlCommand requete = new SqlCommand(@"update Clients 
-                                                  set Id_Client=@id, Nom_Client=@nom, Prenom_Client=@prenom, Coefficient_Client=@coeff, Telephone_Client=@tel, Ville_Client=@ville, 
-                                                  Adresse_Client=@adr, Code_Postal=@cp, Professionnel=@prof, ref_commercial_clie=@idcom", connexion);
+            SqlCommand requete = new SqlCommand(@"update svg.Clients 
+                                                  set Nom_Client=@nom, Prenom_Client=@prenom, Coefficient_Client=@coeff, Telephone_Client=@tel, Ville_Client=@ville, 
+                                                  Adresse_Client=@adr, Code_Postal=@cp, Professionnel=@prof, ref_commercial_clie=@idcom
+                                                   Where Id_Client = @Id", connexion);
+
             requete.Parameters.AddWithValue("@id", cli.id_CLient);
             requete.Parameters.AddWithValue("@nom", cli.Nom_Client);
             requete.Parameters.AddWithValue("@prenom", cli.Prenom_Client);

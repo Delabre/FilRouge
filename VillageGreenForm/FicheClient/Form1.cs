@@ -115,7 +115,20 @@ namespace FicheClient
         {
             if (action == "modifier")
             {
+                Clients cli = new Clients();
+                cli.id_CLient = Convert.ToInt32(LabelIdentifiant.Text);
+                cli.Nom_Client = textBoxNom.Text;
+                cli.Prenom_Client = textBoxPrenom.Text;
+                cli.Ville_Client = textBoxVille.Text;
+                cli.Telephone_Client = textBoxTel.Text;
+                cli.Adresse_Client = textBoxAdresse.Text;
+                cli.Code_Postal = textBoxCp.Text;
+                cli.id_Commercial = Convert.ToInt32(textBoxIdCom.Text);
+                cli.Coefficient_CLient = (int)numericUpDown1.Value;
 
+                ClientsDAO data = new ClientsDAO();
+
+                data.Update(cli);
             }
         }
     }
