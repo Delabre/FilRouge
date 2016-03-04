@@ -54,7 +54,7 @@ namespace FicheClient
 
             buttonConfirmer.Visible = true;
             ButtonAnnuler.Visible = true;
-            groupBox1.Visible = true;
+            groupBoxCommercial.Visible = true;
             checkBoxProf.Visible = true;
             buttonAjouter.Enabled = false;
 
@@ -211,7 +211,7 @@ namespace FicheClient
             dataGridView1.ClearSelection();
             buttonConfirmer.Visible = true;
             ButtonAnnuler.Visible = true;
-            groupBox1.Visible = true;
+            groupBoxCommercial.Visible = true;
             dataGridView1.Enabled = false;
             checkBoxProf.Visible = true;
             buttonModifier.Enabled = false;
@@ -225,7 +225,7 @@ namespace FicheClient
         {
             buttonConfirmer.Visible = false;
             ButtonAnnuler.Visible = false;
-            groupBox1.Visible = false;
+            groupBoxCommercial.Visible = false;
             dataGridView1.Enabled = false;
             dataGridView1.Enabled = true;
             buttonModifier.Enabled = true;
@@ -341,7 +341,7 @@ namespace FicheClient
 
             checkBoxProf.Visible = false;
 
-            groupBox1.Visible = true;
+            groupBoxCommercial.Visible = true;
 
             ClientsDAO affiche = new ClientsDAO();
 

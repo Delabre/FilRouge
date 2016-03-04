@@ -38,11 +38,11 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonAjouter = new System.Windows.Forms.Button();
             this.buttonModifier = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxCommercial = new System.Windows.Forms.GroupBox();
+            this.checkBoxProf = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBoxIdCom = new System.Windows.Forms.TextBox();
             this.textBoxTel = new System.Windows.Forms.TextBox();
             this.textBoxCp = new System.Windows.Forms.TextBox();
             this.textBoxVille = new System.Windows.Forms.TextBox();
@@ -61,11 +61,11 @@
             this.LabelIdentifiant = new System.Windows.Forms.Label();
             this.buttonConfirmer = new System.Windows.Forms.Button();
             this.ButtonAnnuler = new System.Windows.Forms.Button();
-            this.checkBoxProf = new System.Windows.Forms.CheckBox();
             this.buttonConsulter = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxCommercial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -166,37 +166,49 @@
             this.buttonModifier.Visible = false;
             this.buttonModifier.Click += new System.EventHandler(this.buttonModifier_Click);
             // 
-            // groupBox1
+            // groupBoxCommercial
             // 
-            this.groupBox1.Controls.Add(this.checkBoxProf);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.buttonModifier);
-            this.groupBox1.Controls.Add(this.textBoxIdCom);
-            this.groupBox1.Controls.Add(this.textBoxTel);
-            this.groupBox1.Controls.Add(this.textBoxCp);
-            this.groupBox1.Controls.Add(this.textBoxVille);
-            this.groupBox1.Controls.Add(this.textBoxAdresse);
-            this.groupBox1.Controls.Add(this.textBoxPrenom);
-            this.groupBox1.Controls.Add(this.textBoxNom);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.labelProfessionnel);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.LabelIdentifiant);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(661, 238);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(558, 404);
-            this.groupBox1.TabIndex = 50;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Visible = false;
+            this.groupBoxCommercial.Controls.Add(this.comboBox1);
+            this.groupBoxCommercial.Controls.Add(this.checkBoxProf);
+            this.groupBoxCommercial.Controls.Add(this.label1);
+            this.groupBoxCommercial.Controls.Add(this.label9);
+            this.groupBoxCommercial.Controls.Add(this.numericUpDown1);
+            this.groupBoxCommercial.Controls.Add(this.buttonModifier);
+            this.groupBoxCommercial.Controls.Add(this.textBoxTel);
+            this.groupBoxCommercial.Controls.Add(this.textBoxCp);
+            this.groupBoxCommercial.Controls.Add(this.textBoxVille);
+            this.groupBoxCommercial.Controls.Add(this.textBoxAdresse);
+            this.groupBoxCommercial.Controls.Add(this.textBoxPrenom);
+            this.groupBoxCommercial.Controls.Add(this.textBoxNom);
+            this.groupBoxCommercial.Controls.Add(this.label10);
+            this.groupBoxCommercial.Controls.Add(this.labelProfessionnel);
+            this.groupBoxCommercial.Controls.Add(this.label8);
+            this.groupBoxCommercial.Controls.Add(this.label7);
+            this.groupBoxCommercial.Controls.Add(this.label6);
+            this.groupBoxCommercial.Controls.Add(this.label5);
+            this.groupBoxCommercial.Controls.Add(this.label4);
+            this.groupBoxCommercial.Controls.Add(this.label3);
+            this.groupBoxCommercial.Controls.Add(this.label2);
+            this.groupBoxCommercial.Controls.Add(this.LabelIdentifiant);
+            this.groupBoxCommercial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxCommercial.Location = new System.Drawing.Point(661, 238);
+            this.groupBoxCommercial.Name = "groupBoxCommercial";
+            this.groupBoxCommercial.Size = new System.Drawing.Size(558, 404);
+            this.groupBoxCommercial.TabIndex = 50;
+            this.groupBoxCommercial.TabStop = false;
+            this.groupBoxCommercial.Visible = false;
+            // 
+            // checkBoxProf
+            // 
+            this.checkBoxProf.AutoSize = true;
+            this.checkBoxProf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxProf.Location = new System.Drawing.Point(22, 366);
+            this.checkBoxProf.Name = "checkBoxProf";
+            this.checkBoxProf.Size = new System.Drawing.Size(109, 20);
+            this.checkBoxProf.TabIndex = 69;
+            this.checkBoxProf.Text = "Professionnel";
+            this.checkBoxProf.UseVisualStyleBackColor = true;
+            this.checkBoxProf.Visible = false;
             // 
             // label1
             // 
@@ -224,13 +236,6 @@
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(48, 24);
             this.numericUpDown1.TabIndex = 67;
-            // 
-            // textBoxIdCom
-            // 
-            this.textBoxIdCom.Location = new System.Drawing.Point(430, 364);
-            this.textBoxIdCom.Name = "textBoxIdCom";
-            this.textBoxIdCom.Size = new System.Drawing.Size(84, 24);
-            this.textBoxIdCom.TabIndex = 66;
             // 
             // textBoxTel
             // 
@@ -284,11 +289,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(287, 369);
+            this.label10.Location = new System.Drawing.Point(242, 369);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(137, 16);
+            this.label10.Size = new System.Drawing.Size(86, 16);
             this.label10.TabIndex = 60;
-            this.label10.Text = "Identifiant commercial";
+            this.label10.Text = "Commercial :";
             // 
             // labelProfessionnel
             // 
@@ -401,18 +406,6 @@
             this.ButtonAnnuler.Visible = false;
             this.ButtonAnnuler.Click += new System.EventHandler(this.ButtonAnnuler_Click);
             // 
-            // checkBoxProf
-            // 
-            this.checkBoxProf.AutoSize = true;
-            this.checkBoxProf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxProf.Location = new System.Drawing.Point(22, 366);
-            this.checkBoxProf.Name = "checkBoxProf";
-            this.checkBoxProf.Size = new System.Drawing.Size(109, 20);
-            this.checkBoxProf.TabIndex = 69;
-            this.checkBoxProf.Text = "Professionnel";
-            this.checkBoxProf.UseVisualStyleBackColor = true;
-            this.checkBoxProf.Visible = false;
-            // 
             // buttonConsulter
             // 
             this.buttonConsulter.Location = new System.Drawing.Point(550, 238);
@@ -423,6 +416,14 @@
             this.buttonConsulter.UseVisualStyleBackColor = true;
             this.buttonConsulter.Click += new System.EventHandler(this.buttonConsulter_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(334, 364);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(180, 26);
+            this.comboBox1.TabIndex = 70;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -431,7 +432,7 @@
             this.Controls.Add(this.buttonConsulter);
             this.Controls.Add(this.ButtonAnnuler);
             this.Controls.Add(this.buttonConfirmer);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxCommercial);
             this.Controls.Add(this.buttonAjouter);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox1);
@@ -445,8 +446,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxCommercial.ResumeLayout(false);
+            this.groupBoxCommercial.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
@@ -463,7 +464,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonAjouter;
         private System.Windows.Forms.Button buttonModifier;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxCommercial;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label labelProfessionnel;
         private System.Windows.Forms.Label label8;
@@ -475,7 +476,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LabelIdentifiant;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBoxIdCom;
         private System.Windows.Forms.TextBox textBoxTel;
         private System.Windows.Forms.TextBox textBoxCp;
         private System.Windows.Forms.TextBox textBoxVille;
@@ -488,6 +488,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBoxProf;
         private System.Windows.Forms.Button buttonConsulter;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
