@@ -247,5 +247,17 @@ namespace FicheClient
                 textBoxPrenom.ForeColor = Color.Black;
             }
         }
+
+        private void textBoxAdresse_TextChanged(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(textBoxAdresse.Text, @"^\d{0,5}([ ][A-Z]*[a-z]+)*$"))  // REGEX ADRESSE !!!!!!!!!!!!!!!!!!!!!!!!!
+            {
+                textBoxAdresse.ForeColor = Color.Red;
+            }
+            else
+            {
+                textBoxAdresse.ForeColor = Color.Black;
+            }
+        }
     }
 }
