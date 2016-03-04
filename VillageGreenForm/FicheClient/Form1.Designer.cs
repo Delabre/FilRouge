@@ -238,6 +238,7 @@
             this.textBoxTel.Name = "textBoxTel";
             this.textBoxTel.Size = new System.Drawing.Size(168, 24);
             this.textBoxTel.TabIndex = 65;
+            this.textBoxTel.TextChanged += new System.EventHandler(this.textBoxTel_TextChanged);
             // 
             // textBoxCp
             // 

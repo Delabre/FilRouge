@@ -259,7 +259,7 @@ namespace FicheClient
         //=====================================================================================================
         private void textBoxNom_TextChanged(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(textBoxNom.Text, @"^[A-Z]{1,}[A-Z]*[a-z]*([ ][A-Z]{1,}[A-Z]*[a-z]*)?$"))  // REGEX NOM !!!!!!!!!!!!!!!!!!!!!!!!!
+            if (!Regex.IsMatch(textBoxNom.Text, @"^[A-Z]{1,}[A-Z]*[a-z]*([ ][A-Z]{1,}[A-Z]*[a-z]*)*$"))  // REGEX NOM !!!!!!!!!!!!!!!!!!!!!!!!!
             {
                 textBoxNom.ForeColor = Color.Red;
             }
@@ -294,7 +294,7 @@ namespace FicheClient
         }
         private void textBoxVille_TextChanged(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(textBoxVille.Text, @"^[A-Z]{1,}[A-Z]*[a-z]*([ ][A-Z]{1,}[A-Z]*[a-z]*)?$"))  // REGEX NOM !!!!!!!!!!!!!!!!!!!!!!!!!
+            if (!Regex.IsMatch(textBoxVille.Text, @"^[A-Z]{1,}[A-Z]*[a-z]*([ ][A-Z]{1,}[A-Z]*[a-z]*)?$"))  // REGEX VILLE !!!!!!!!!!!!!!!!!!!!!!!!!
             {
                 textBoxVille.ForeColor = Color.Red;
             }
@@ -305,13 +305,24 @@ namespace FicheClient
         }
         private void textBoxCp_TextChanged(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(textBoxCp.Text, @"^\d{5,}$"))  // REGEX NOM !!!!!!!!!!!!!!!!!!!!!!!!!
+            if (!Regex.IsMatch(textBoxCp.Text, @"^\d{5,}$"))  // REGEX CP !!!!!!!!!!!!!!!!!!!!!!!!!
             {
                 textBoxCp.ForeColor = Color.Red;
             }
             else
             {
                 textBoxCp.ForeColor = Color.Black;
+            }
+        }
+        private void textBoxTel_TextChanged(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(textBoxTel.Text, @"^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$"))  // REGEX TELEPHONE !!!!!!!!!!!!!!!!!!!!!!!!!
+            {
+                textBoxTel.ForeColor = Color.Red;
+            }
+            else
+            {
+                textBoxTel.ForeColor = Color.Black;
             }
         }
         //=====================================================================================================
@@ -367,8 +378,6 @@ namespace FicheClient
             textBoxIdCom.Enabled = false;
             numericUpDown1.Enabled = false;
 
-        }
-
-        
+        }       
     }
 }

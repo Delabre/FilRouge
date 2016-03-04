@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Clients.cs" />
     <Compile Include="ClientsDAO.cs" />
+    <Compile Include="Commerciaux.cs" />
     <Compile Include="Fournisseurs.cs" />
     <Compile Include="FournisseursDAO.cs" />
     <Compile Include="Produits.cs" />
