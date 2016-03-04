@@ -263,6 +263,7 @@
             this.textBoxPrenom.Name = "textBoxPrenom";
             this.textBoxPrenom.Size = new System.Drawing.Size(168, 24);
             this.textBoxPrenom.TabIndex = 61;
+            this.textBoxPrenom.TextChanged += new System.EventHandler(this.textBoxPrenom_TextChanged);
             // 
             // textBoxNom
             // 

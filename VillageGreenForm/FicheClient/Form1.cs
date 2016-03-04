@@ -226,13 +226,25 @@ namespace FicheClient
 
         private void textBoxNom_TextChanged(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(textBoxNom.Text, @"^[A-Z]{1,}[a-z]+([ ][A-Z]{1,}[a-z]+)?$"))  // REGEX NOM ET PRENOM !!!!!!!!!!!!!!!!!!!!!!!!!
+            if (!Regex.IsMatch(textBoxNom.Text, @"^[A-Z]{1,}[A-Z]*[a-z]*([ ][A-Z]{1,}[A-Z]*[a-z]*)?$"))  // REGEX NOM !!!!!!!!!!!!!!!!!!!!!!!!!
             {
                 textBoxNom.ForeColor = Color.Red;
             }
             else
             {
                 textBoxNom.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxPrenom_TextChanged(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(textBoxPrenom.Text, @"^[A-Z]{1,}[a-z]+([ ][A-Z]{1,}[a-z]+)*$"))  // REGEX PRENOM !!!!!!!!!!!!!!!!!!!!!!!!!
+            {
+                textBoxPrenom.ForeColor = Color.Red;
+            }
+            else
+            {
+                textBoxPrenom.ForeColor = Color.Black;
             }
         }
     }
