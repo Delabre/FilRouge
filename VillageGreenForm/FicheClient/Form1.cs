@@ -46,11 +46,15 @@ namespace FicheClient
             {
                 return;
             }
+
+            nettoyage(); // Méthode de nettoyage !
+
             action = "modifier";
 
             buttonConfirmer.Visible = true;
             ButtonAnnuler.Visible = true;
             groupBox1.Visible = true;
+            checkBoxProf.Visible = true;
 
             ClientsDAO affiche = new ClientsDAO();
 
@@ -71,11 +75,11 @@ namespace FicheClient
 
             if (cli.Professionnel)
             {
-                labelProfessionnel.Text = "Professionnel";
+                checkBoxProf.Checked = true;
             }
             else if (!cli.Professionnel)
             {
-                labelProfessionnel.Text = "Particulier";
+                checkBoxProf.Checked = false;
             }
         }
 
@@ -210,6 +214,7 @@ namespace FicheClient
             dataGridView1.Enabled = false;
             dataGridView1.Enabled = true;
             buttonModifier.Enabled = true;
+            checkBoxProf.Visible = false;
 
             dataGridView1.ClearSelection();
 
@@ -222,6 +227,15 @@ namespace FicheClient
             textBoxIdCom.Clear();
             LabelIdentifiant.Text = "";
             numericUpDown1.Value = 0;
+
+            textBoxNom.Enabled = true;
+            textBoxPrenom.Enabled = true;
+            textBoxVille.Enabled = true;
+            textBoxTel.Enabled = true;
+            textBoxAdresse.Enabled = true;
+            textBoxCp.Enabled = true;
+            textBoxIdCom.Enabled = true;
+            numericUpDown1.Enabled = true;
         }
 
         private void textBoxNom_TextChanged(object sender, EventArgs e)
@@ -258,6 +272,49 @@ namespace FicheClient
             {
                 textBoxAdresse.ForeColor = Color.Black;
             }
+        }
+
+        private void buttonConsulter_Click(object sender, EventArgs e)
+        {
+            checkBoxProf.Visible = false;
+
+            groupBox1.Visible = true;
+
+            ClientsDAO affiche = new ClientsDAO();
+
+            int id = (int)dataGridView1.CurrentRow.Cells[0].Value;
+
+
+            Clients cli = affiche.Find(id);
+
+            LabelIdentifiant.Text = cli.id_CLient.ToString();
+            textBoxNom.Text = cli.Nom_Client;
+            textBoxPrenom.Text = cli.Prenom_Client;
+            textBoxVille.Text = cli.Ville_Client;
+            textBoxTel.Text = cli.Telephone_Client;
+            textBoxAdresse.Text = cli.Adresse_Client;
+            textBoxCp.Text = cli.Code_Postal;
+            textBoxIdCom.Text = cli.id_Commercial.ToString();
+            numericUpDown1.Value = cli.Coefficient_CLient;
+
+            if (cli.Professionnel)
+            {
+                labelProfessionnel.Text = "Professionnel";
+            }
+            else if (!cli.Professionnel)
+            {
+                labelProfessionnel.Text = "Particulier";
+            }
+
+            textBoxNom.Enabled = false;
+            textBoxPrenom.Enabled = false;
+            textBoxVille.Enabled = false;
+            textBoxTel.Enabled = false;
+            textBoxAdresse.Enabled = false;
+            textBoxCp.Enabled = false;
+            textBoxIdCom.Enabled = false;
+            numericUpDown1.Enabled = false;
+
         }
     }
 }

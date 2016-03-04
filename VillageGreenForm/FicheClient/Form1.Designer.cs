@@ -62,6 +62,7 @@
             this.buttonConfirmer = new System.Windows.Forms.Button();
             this.ButtonAnnuler = new System.Windows.Forms.Button();
             this.checkBoxProf = new System.Windows.Forms.CheckBox();
+            this.buttonConsulter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -146,7 +147,7 @@
             // 
             // buttonAjouter
             // 
-            this.buttonAjouter.Location = new System.Drawing.Point(550, 238);
+            this.buttonAjouter.Location = new System.Drawing.Point(550, 275);
             this.buttonAjouter.Name = "buttonAjouter";
             this.buttonAjouter.Size = new System.Drawing.Size(75, 23);
             this.buttonAjouter.TabIndex = 48;
@@ -156,7 +157,7 @@
             // 
             // buttonModifier
             // 
-            this.buttonModifier.Location = new System.Drawing.Point(550, 275);
+            this.buttonModifier.Location = new System.Drawing.Point(550, 312);
             this.buttonModifier.Name = "buttonModifier";
             this.buttonModifier.Size = new System.Drawing.Size(75, 23);
             this.buttonModifier.TabIndex = 49;
@@ -407,11 +408,22 @@
             this.checkBoxProf.UseVisualStyleBackColor = true;
             this.checkBoxProf.Visible = false;
             // 
+            // buttonConsulter
+            // 
+            this.buttonConsulter.Location = new System.Drawing.Point(550, 238);
+            this.buttonConsulter.Name = "buttonConsulter";
+            this.buttonConsulter.Size = new System.Drawing.Size(75, 23);
+            this.buttonConsulter.TabIndex = 53;
+            this.buttonConsulter.Text = "Consulter";
+            this.buttonConsulter.UseVisualStyleBackColor = true;
+            this.buttonConsulter.Click += new System.EventHandler(this.buttonConsulter_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1254, 694);
+            this.Controls.Add(this.buttonConsulter);
             this.Controls.Add(this.ButtonAnnuler);
             this.Controls.Add(this.buttonConfirmer);
             this.Controls.Add(this.groupBox1);
@@ -471,6 +483,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBoxProf;
+        private System.Windows.Forms.Button buttonConsulter;
     }
 }
 
