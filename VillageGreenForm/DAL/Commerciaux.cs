@@ -11,6 +11,9 @@ namespace DAL
         public int Id_Commercial {get; set;}
         public string Nom_Commercial { get; set; }
         public string Prenom_Commercial { get; set; }
-        public string NomComplet_Commercial { get; set; }
+        public string NomComplet_Commercial
+        {
+            get { return Prenom_Commercial + " " + Nom_Commercial; }
+        }
     }
 }
