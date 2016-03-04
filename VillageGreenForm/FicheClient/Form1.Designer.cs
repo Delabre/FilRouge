@@ -157,12 +157,13 @@
             // 
             // buttonModifier
             // 
-            this.buttonModifier.Location = new System.Drawing.Point(550, 312);
+            this.buttonModifier.Location = new System.Drawing.Point(393, 206);
             this.buttonModifier.Name = "buttonModifier";
-            this.buttonModifier.Size = new System.Drawing.Size(75, 23);
+            this.buttonModifier.Size = new System.Drawing.Size(121, 67);
             this.buttonModifier.TabIndex = 49;
             this.buttonModifier.Text = "Modifier";
             this.buttonModifier.UseVisualStyleBackColor = true;
+            this.buttonModifier.Visible = false;
             this.buttonModifier.Click += new System.EventHandler(this.buttonModifier_Click);
             // 
             // groupBox1
@@ -171,6 +172,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.buttonModifier);
             this.groupBox1.Controls.Add(this.textBoxIdCom);
             this.groupBox1.Controls.Add(this.textBoxTel);
             this.groupBox1.Controls.Add(this.textBoxCp);
@@ -243,6 +245,7 @@
             this.textBoxCp.Name = "textBoxCp";
             this.textBoxCp.Size = new System.Drawing.Size(168, 24);
             this.textBoxCp.TabIndex = 64;
+            this.textBoxCp.TextChanged += new System.EventHandler(this.textBoxCp_TextChanged);
             // 
             // textBoxVille
             // 
@@ -250,6 +253,7 @@
             this.textBoxVille.Name = "textBoxVille";
             this.textBoxVille.Size = new System.Drawing.Size(168, 24);
             this.textBoxVille.TabIndex = 63;
+            this.textBoxVille.TextChanged += new System.EventHandler(this.textBoxVille_TextChanged);
             // 
             // textBoxAdresse
             // 
@@ -427,7 +431,6 @@
             this.Controls.Add(this.ButtonAnnuler);
             this.Controls.Add(this.buttonConfirmer);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonModifier);
             this.Controls.Add(this.buttonAjouter);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox1);

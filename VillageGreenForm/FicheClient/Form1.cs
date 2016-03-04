@@ -40,8 +40,9 @@ namespace FicheClient
             dataGridView1.ClearSelection();
         }
 
-        private void buttonModifier_Click(object sender, EventArgs e)
+        private void buttonModifier_Click(object sender, EventArgs e)  // BOUTON MOFIFIER ================================
         {
+
             if (dataGridView1.SelectedRows.Count == 0 )
             {
                 return;
@@ -55,6 +56,7 @@ namespace FicheClient
             ButtonAnnuler.Visible = true;
             groupBox1.Visible = true;
             checkBoxProf.Visible = true;
+            buttonAjouter.Enabled = false;
 
             ClientsDAO affiche = new ClientsDAO();
 
@@ -73,19 +75,30 @@ namespace FicheClient
             textBoxIdCom.Text = cli.id_Commercial.ToString();
             numericUpDown1.Value = cli.Coefficient_CLient;
 
-            if (cli.Professionnel)
-            {
-                checkBoxProf.Checked = true;
-            }
-            else if (!cli.Professionnel)
-            {
-                checkBoxProf.Checked = false;
-            }
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             if (action == "modifier")
+            {
+                ClientsDAO affiche = new ClientsDAO();
+
+                int id = (int)dataGridView1.CurrentRow.Cells[0].Value;
+
+
+                Clients cli = affiche.Find(id);
+
+                LabelIdentifiant.Text = cli.id_CLient.ToString();
+                textBoxNom.Text = cli.Nom_Client;
+                textBoxPrenom.Text = cli.Prenom_Client;
+                textBoxVille.Text = cli.Ville_Client;
+                textBoxTel.Text = cli.Telephone_Client;
+                textBoxAdresse.Text = cli.Adresse_Client;
+                textBoxCp.Text = cli.Code_Postal;
+                textBoxIdCom.Text = cli.id_Commercial.ToString();
+                numericUpDown1.Value = cli.Coefficient_CLient;
+            }
+            else if (action == "consulter")
             {
                 ClientsDAO affiche = new ClientsDAO();
 
@@ -112,7 +125,8 @@ namespace FicheClient
                 {
                     labelProfessionnel.Text = "Particulier";
                 }
-            }           
+            }
+                       
         }
 
         private void ButtonAnnuler_Click(object sender, EventArgs e)
@@ -201,6 +215,7 @@ namespace FicheClient
             dataGridView1.Enabled = false;
             checkBoxProf.Visible = true;
             buttonModifier.Enabled = false;
+            buttonModifier.Enabled = false;
         }
 
 
@@ -215,6 +230,8 @@ namespace FicheClient
             dataGridView1.Enabled = true;
             buttonModifier.Enabled = true;
             checkBoxProf.Visible = false;
+            buttonModifier.Visible = false;
+            buttonAjouter.Enabled = true;
 
             dataGridView1.ClearSelection();
 
@@ -237,7 +254,9 @@ namespace FicheClient
             textBoxIdCom.Enabled = true;
             numericUpDown1.Enabled = true;
         }
-
+        //=====================================================================================================
+        //                  ********************* REGEX POWA !!!!!!!!!!!!! *********************
+        //=====================================================================================================
         private void textBoxNom_TextChanged(object sender, EventArgs e)
         {
             if (!Regex.IsMatch(textBoxNom.Text, @"^[A-Z]{1,}[A-Z]*[a-z]*([ ][A-Z]{1,}[A-Z]*[a-z]*)?$"))  // REGEX NOM !!!!!!!!!!!!!!!!!!!!!!!!!
@@ -273,9 +292,42 @@ namespace FicheClient
                 textBoxAdresse.ForeColor = Color.Black;
             }
         }
-
+        private void textBoxVille_TextChanged(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(textBoxVille.Text, @"^[A-Z]{1,}[A-Z]*[a-z]*([ ][A-Z]{1,}[A-Z]*[a-z]*)?$"))  // REGEX NOM !!!!!!!!!!!!!!!!!!!!!!!!!
+            {
+                textBoxVille.ForeColor = Color.Red;
+            }
+            else
+            {
+                textBoxVille.ForeColor = Color.Black;
+            }
+        }
+        private void textBoxCp_TextChanged(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(textBoxCp.Text, @"^\d{5,}$"))  // REGEX NOM !!!!!!!!!!!!!!!!!!!!!!!!!
+            {
+                textBoxCp.ForeColor = Color.Red;
+            }
+            else
+            {
+                textBoxCp.ForeColor = Color.Black;
+            }
+        }
+        //=====================================================================================================
+        //                  ********************* FIN REGEX POWA !!!!!!!!!!!!! *********************
+        //=====================================================================================================
         private void buttonConsulter_Click(object sender, EventArgs e)
         {
+
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                return;
+            }
+
+            buttonModifier.Visible = true;
+            action = "consulter";
+
             checkBoxProf.Visible = false;
 
             groupBox1.Visible = true;
@@ -316,5 +368,7 @@ namespace FicheClient
             numericUpDown1.Enabled = false;
 
         }
+
+        
     }
 }
