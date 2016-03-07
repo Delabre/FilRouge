@@ -75,6 +75,8 @@ namespace FicheClient
             textBoxIdCom.Text = cli.id_Commercial.ToString();
             numericUpDown1.Value = cli.Coefficient_CLient;
 
+           
+
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -138,68 +140,91 @@ namespace FicheClient
         {
             if (action == "modifier")
             {
-                Clients cli = new Clients();
-
-                cli.id_CLient = Convert.ToInt32(LabelIdentifiant.Text);
-                cli.Nom_Client = textBoxNom.Text;
-                cli.Prenom_Client = textBoxPrenom.Text;
-                cli.Ville_Client = textBoxVille.Text;
-                cli.Telephone_Client = textBoxTel.Text;
-                cli.Adresse_Client = textBoxAdresse.Text;
-                cli.Code_Postal = textBoxCp.Text;
-                cli.id_Commercial = Convert.ToInt32(textBoxIdCom.Text);
-                cli.Coefficient_CLient = (int)numericUpDown1.Value;
-
-                ClientsDAO data = new ClientsDAO();
-
-                data.Update(cli);
-            }
-            if (action == "ajouter")
-            {
-                Clients cli = new Clients();
-
-                cli.Nom_Client = textBoxNom.Text;
-                cli.Prenom_Client = textBoxPrenom.Text;
-                cli.Ville_Client = textBoxVille.Text;
-                cli.Telephone_Client = textBoxTel.Text;
-                cli.Adresse_Client = textBoxAdresse.Text;
-                cli.Code_Postal = textBoxCp.Text;               
-                cli.Coefficient_CLient = (int)numericUpDown1.Value;
-                if (checkBoxProf.Checked == true)
+                if (!Regex.IsMatch(textBoxNom.Text, @"^[A-Z]{1,}[A-Z]*[a-z]*([ ][A-Z]{1,}[A-Z]*[a-z]*)*$") ||
+               !Regex.IsMatch(textBoxPrenom.Text, @"^[A-Z]{1,}[a-z]+([ ][A-Z]{1,}[a-z]+)*$") ||
+               !Regex.IsMatch(textBoxAdresse.Text, @"^\d{0,5}([ ][A-Z]*[a-z]+)*$") ||
+               !Regex.IsMatch(textBoxVille.Text, @"^[A-Z]{1,}[A-Z]*[a-z]*([ ][A-Z]{1,}[A-Z]*[a-z]*)?$") ||
+               !Regex.IsMatch(textBoxCp.Text, @"^\d{5,}$") ||
+               !Regex.IsMatch(textBoxTel.Text, @"^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$"))
                 {
-                    cli.Professionnel = true;
-                    cli.id_Commercial = 2;
+                    MessageBox.Show("Erreur dans le formulaire", "ERREUR");
                 }
                 else
                 {
-                    cli.Professionnel = false;
-                    cli.id_Commercial = 1;
+                    Clients cli = new Clients();
+
+                    cli.id_CLient = Convert.ToInt32(LabelIdentifiant.Text);
+                    cli.Nom_Client = textBoxNom.Text;
+                    cli.Prenom_Client = textBoxPrenom.Text;
+                    cli.Ville_Client = textBoxVille.Text;
+                    cli.Telephone_Client = textBoxTel.Text;
+                    cli.Adresse_Client = textBoxAdresse.Text;
+                    cli.Code_Postal = textBoxCp.Text;
+                    cli.id_Commercial = Convert.ToInt32(textBoxIdCom.Text);
+                    cli.Coefficient_CLient = (int)numericUpDown1.Value;
+
+                    ClientsDAO data = new ClientsDAO();
+
+                    data.Update(cli);
+
+                    actualiser();
                 }
-
-                ClientsDAO ajout = new ClientsDAO();
-
-                ajout.Insert(cli);              
+                
             }
-            //SUPER REGEX !!!!!!
-            //====================================================================================
-            if (Regex.IsMatch(textBoxNom.Text, @"^[A-Z]+[a-z]? \s? [A-Z]?[a-z]? $") )
+            if (action == "ajouter")
             {
+                if (!Regex.IsMatch(textBoxNom.Text, @"^[A-Z]{1,}[A-Z]*[a-z]*([ ][A-Z]{1,}[A-Z]*[a-z]*)*$") ||
+               !Regex.IsMatch(textBoxPrenom.Text, @"^[A-Z]{1,}[a-z]+([ ][A-Z]{1,}[a-z]+)*$") ||
+               !Regex.IsMatch(textBoxAdresse.Text, @"^\d{0,5}([ ][A-Z]*[a-z]+)*$") ||
+               !Regex.IsMatch(textBoxVille.Text, @"^[A-Z]{1,}[A-Z]*[a-z]*([ ][A-Z]{1,}[A-Z]*[a-z]*)?$") ||
+               !Regex.IsMatch(textBoxCp.Text, @"^\d{5,}$") ||
+               !Regex.IsMatch(textBoxTel.Text, @"^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$"))
+                {
+                    MessageBox.Show("Erreur dans le formulaire", "ERREUR");
+                }
+                else
+                {
+                    Clients cli = new Clients();
 
-            }
+                    cli.Nom_Client = textBoxNom.Text;
+                    cli.Prenom_Client = textBoxPrenom.Text;
+                    cli.Ville_Client = textBoxVille.Text;
+                    cli.Telephone_Client = textBoxTel.Text;
+                    cli.Adresse_Client = textBoxAdresse.Text;
+                    cli.Code_Postal = textBoxCp.Text;
+                    cli.Coefficient_CLient = (int)numericUpDown1.Value;
+                    if (checkBoxProf.Checked == true)
+                    {
+                        cli.Professionnel = true;
+                        cli.id_Commercial = 2;
+                    }
+                    else
+                    {
+                        cli.Professionnel = false;
+                        cli.id_Commercial = 1;
+                    }
 
-            ClientsDAO liste = new ClientsDAO();
+                    ClientsDAO ajout = new ClientsDAO();
 
-            dataGridView1.DataSource = liste.list();
-            dataGridView1.Columns[3].Visible = false;
-            dataGridView1.Columns[4].Visible = false;
-            dataGridView1.Columns[5].Visible = false;
-            dataGridView1.Columns[6].Visible = false;
-            dataGridView1.Columns[7].Visible = false;
-            dataGridView1.Columns[8].Visible = false;
-            dataGridView1.Columns[9].Visible = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    ajout.Insert(cli);
 
-            nettoyage(); // Méthode de nettoyage !
+                    actualiser();
+                }
+            }         
+
+            //ClientsDAO liste = new ClientsDAO();
+
+            //dataGridView1.DataSource = liste.list();
+            //dataGridView1.Columns[3].Visible = false;
+            //dataGridView1.Columns[4].Visible = false;
+            //dataGridView1.Columns[5].Visible = false;
+            //dataGridView1.Columns[6].Visible = false;
+            //dataGridView1.Columns[7].Visible = false;
+            //dataGridView1.Columns[8].Visible = false;
+            //dataGridView1.Columns[9].Visible = false;
+            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            //nettoyage(); // Méthode de nettoyage !
         }
 
         private void buttonAjouter_Click(object sender, EventArgs e)
@@ -377,7 +402,23 @@ namespace FicheClient
             textBoxCp.Enabled = false;
             textBoxIdCom.Enabled = false;
             numericUpDown1.Enabled = false;
+        }  
+        
+        public void actualiser()
+        {
+            ClientsDAO liste = new ClientsDAO();
 
-        }       
+            dataGridView1.DataSource = liste.list();
+            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
+            dataGridView1.Columns[7].Visible = false;
+            dataGridView1.Columns[8].Visible = false;
+            dataGridView1.Columns[9].Visible = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            nettoyage(); // Méthode de nettoyage !
+        }     
     }
 }
