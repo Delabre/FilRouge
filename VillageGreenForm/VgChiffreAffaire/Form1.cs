@@ -18,7 +18,7 @@ namespace VgChiffreAffaire
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)  //==== FORM LOAD ====
         {            
             FournisseursDAO liste = new FournisseursDAO();
 
@@ -29,7 +29,7 @@ namespace VgChiffreAffaire
             comboBoxFourniseur.SelectedIndex = -1;
         }
 
-        private void buttonRechercher_Click(object sender, EventArgs e)
+        private void buttonRechercher_Click(object sender, EventArgs e) //==== BOUTON RECHERCHER ====
         {
             if (comboBoxFourniseur.SelectedIndex != -1)
             {
@@ -50,7 +50,7 @@ namespace VgChiffreAffaire
             comboBoxFourniseur.SelectedIndex = -1;
         }
 
-        private void buttonVider_Click(object sender, EventArgs e)
+        private void buttonVider_Click(object sender, EventArgs e) //==== BOUTON VIDER ====
         {
             dataGridView1.DataSource = null;
         }

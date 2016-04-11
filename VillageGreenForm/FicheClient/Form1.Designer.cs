@@ -39,6 +39,7 @@
             this.buttonAjouter = new System.Windows.Forms.Button();
             this.buttonModifier = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxProf = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -61,7 +62,6 @@
             this.LabelIdentifiant = new System.Windows.Forms.Label();
             this.buttonConfirmer = new System.Windows.Forms.Button();
             this.ButtonAnnuler = new System.Windows.Forms.Button();
-            this.checkBoxProf = new System.Windows.Forms.CheckBox();
             this.buttonConsulter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -73,7 +73,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(398, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(388, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(458, 171);
             this.pictureBox1.TabIndex = 46;
@@ -197,6 +197,18 @@
             this.groupBox1.TabIndex = 50;
             this.groupBox1.TabStop = false;
             this.groupBox1.Visible = false;
+            // 
+            // checkBoxProf
+            // 
+            this.checkBoxProf.AutoSize = true;
+            this.checkBoxProf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxProf.Location = new System.Drawing.Point(22, 366);
+            this.checkBoxProf.Name = "checkBoxProf";
+            this.checkBoxProf.Size = new System.Drawing.Size(109, 20);
+            this.checkBoxProf.TabIndex = 69;
+            this.checkBoxProf.Text = "Professionnel";
+            this.checkBoxProf.UseVisualStyleBackColor = true;
+            this.checkBoxProf.Visible = false;
             // 
             // label1
             // 
@@ -401,18 +413,6 @@
             this.ButtonAnnuler.Visible = false;
             this.ButtonAnnuler.Click += new System.EventHandler(this.ButtonAnnuler_Click);
             // 
-            // checkBoxProf
-            // 
-            this.checkBoxProf.AutoSize = true;
-            this.checkBoxProf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxProf.Location = new System.Drawing.Point(22, 366);
-            this.checkBoxProf.Name = "checkBoxProf";
-            this.checkBoxProf.Size = new System.Drawing.Size(109, 20);
-            this.checkBoxProf.TabIndex = 69;
-            this.checkBoxProf.Text = "Professionnel";
-            this.checkBoxProf.UseVisualStyleBackColor = true;
-            this.checkBoxProf.Visible = false;
-            // 
             // buttonConsulter
             // 
             this.buttonConsulter.Location = new System.Drawing.Point(550, 238);
@@ -427,7 +427,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1254, 694);
+            this.ClientSize = new System.Drawing.Size(1235, 694);
             this.Controls.Add(this.buttonConsulter);
             this.Controls.Add(this.ButtonAnnuler);
             this.Controls.Add(this.buttonConfirmer);

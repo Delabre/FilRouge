@@ -22,7 +22,7 @@ namespace FicheClient
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)  // CHARGEMENT DE LA FENETRE ================================
         {
 
             ClientsDAO liste = new ClientsDAO();
@@ -79,7 +79,7 @@ namespace FicheClient
 
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)  // DATAGRID CHANGEMENT DE SELECTION ================================
         {
             if (action == "modifier")
             {
@@ -101,7 +101,7 @@ namespace FicheClient
                 numericUpDown1.Value = cli.Coefficient_CLient;
             }
             else if (action == "consulter")
-            {
+            {              
                 ClientsDAO affiche = new ClientsDAO();
 
                 int id = (int)dataGridView1.CurrentRow.Cells[0].Value;
@@ -210,21 +210,7 @@ namespace FicheClient
 
                     actualiser();
                 }
-            }         
-
-            //ClientsDAO liste = new ClientsDAO();
-
-            //dataGridView1.DataSource = liste.list();
-            //dataGridView1.Columns[3].Visible = false;
-            //dataGridView1.Columns[4].Visible = false;
-            //dataGridView1.Columns[5].Visible = false;
-            //dataGridView1.Columns[6].Visible = false;
-            //dataGridView1.Columns[7].Visible = false;
-            //dataGridView1.Columns[8].Visible = false;
-            //dataGridView1.Columns[9].Visible = false;
-            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            //nettoyage(); // Méthode de nettoyage !
+            }                  
         }
 
         private void buttonAjouter_Click(object sender, EventArgs e)
@@ -280,7 +266,7 @@ namespace FicheClient
             numericUpDown1.Enabled = true;
         }
         //=====================================================================================================
-        //                  ********************* REGEX POWA !!!!!!!!!!!!! *********************
+        //                  ********************* REGEX !!!!!!!!!!!!! *********************
         //=====================================================================================================
         private void textBoxNom_TextChanged(object sender, EventArgs e)
         {
@@ -351,10 +337,15 @@ namespace FicheClient
             }
         }
         //=====================================================================================================
-        //                  ********************* FIN REGEX POWA !!!!!!!!!!!!! *********************
+        //                  ********************* FIN REGEX !!!!!!!!!!!!! *********************
         //=====================================================================================================
         private void buttonConsulter_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count != 0)
+            {
+                ButtonAnnuler.Visible = true;
+            }
+            
 
             if (dataGridView1.SelectedRows.Count == 0)
             {

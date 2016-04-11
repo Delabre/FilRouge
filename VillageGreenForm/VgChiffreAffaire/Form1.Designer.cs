@@ -111,7 +111,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(320, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(280, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(458, 171);
             this.pictureBox1.TabIndex = 28;
@@ -263,7 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 654);
+            this.ClientSize = new System.Drawing.Size(1020, 654);
             this.Controls.Add(this.buttonVider);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonRechercher);
